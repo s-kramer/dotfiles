@@ -174,6 +174,7 @@ _isroot=false
     alias tc='cd ~/sd/toolchains/'
     alias led='cd /sd/zynq-amp/leds/'
     alias ew='cd /sd/zynq-amp/ecos-work'
+    alias pdf='cd /home/skramer/PDFs/'
   #}}}
   # COMPILATION {{{
     alias c+='clang++ -o '
