@@ -93,8 +93,9 @@ if count(g:bundle_groups, 'colorscheme')
   " Plugin 'chriskempson/base16-vim'
   " Plugin 'flazz/vim-colorschemes'
   " Plugin 'guns/xterm-color-table.vim'
+  Plugin 'flazz/vim-colorschemes'
   " Plugin 'CSApprox'
-endif"}}}
+endif
 
 " automatically load filetype plugins
 filetype plugin indent on
