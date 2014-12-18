@@ -177,6 +177,7 @@ _isroot=false
     alias ew='cd /sd/zynq-amp/ecos-work'
     alias ga='git add'
     alias gc='git commit'
+    alias gp='git push'
     alias pdf='cd /home/skramer/PDFs/'
   #}}}
   # COMPILATION {{{
