@@ -283,4 +283,4 @@
 
   " DelimitMate"{{{
   let delimitMate_matchpairs = "(:),[:],{:},<:>"
-  au FileType cpp let b:delimitMate_matchpairs = "(:),[:],{:},<:>,<<:  " "}}}
+  au FileType cpp let b:delimitMate_matchpairs = "(:),[:],{:},<:>,<<:  ,< : " "}}}

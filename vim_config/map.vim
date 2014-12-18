@@ -214,3 +214,5 @@ map ½ :tabn 6<cr>
 map <leader>f :pyf /home/skramer/scripts/clang-format.py<cr>
 imap <C-f> <c-o>:pyf /home/skramer/scripts/clang-format.py<cr>
 
+" Trigger makefile
+nmap <silent> <F5> :make<CR>

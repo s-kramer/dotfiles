@@ -6,6 +6,7 @@
   next_tab = <Alt>l
   prev_tab = <Alt>h
   move_tab_right = <Primary><Shift><Alt>l
+  close_term = None
   move_tab_left = <Primary><Shift><Alt>h
   toggle_scrollbar = None
 [profiles]
@@ -67,6 +68,7 @@
     background_color = "#222225"
     scrollback_infinite = True
   [[Highway]]
+    background_image = None
 [layouts]
   [[default]]
     [[[child1]]]
