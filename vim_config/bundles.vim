@@ -35,6 +35,7 @@ if count(g:bundle_groups, 'general')
   " Plugin 'tacahiroy/ctrlp-funky'
   " Plugin 'kris89/vim-multiple-cursors'
   Plugin 'mbbill/undotree'
+  " Fancy start screen
   Plugin 'mhinz/vim-startify'
   Plugin 'tpope/vim-abolish'
   Plugin 'tpope/vim-commentary'

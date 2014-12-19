@@ -133,6 +133,9 @@ _isroot=false
   #}}}
   # GIT ALIASES {{{
     alias gs='git status'
+    alias gc='git commit'
+    alias gsh='git show'
+    alias gl='git log'
   # }}}
   # AUTOCOLOR {{{
     alias ls='ls --color=auto'
@@ -703,6 +706,38 @@ _isroot=false
       fi
   } 
   # }}}
+#}}}
+  # REMOVE ORPHANED PACKAGES {{{
+  removeOrphanedPackages() {
+      if [[ ! -n $(pacman -Qdt) ]]; then
+          echo "No orphans to remove."
+      else
+          sudo pacman -Rns $(pacman -Qdtq)
+      fi
+  } 
+  # }}}
+  # START SSH AGENT  #{{{
+SSH_ENV=$HOME/.ssh/environment
+   
+# start the ssh-agent
+function start_agent {
+    echo "Initializing new SSH agent..."
+    # spawn ssh-agent
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add
+}
+   
+if [ -f "${SSH_ENV}" ]; then
+     . "${SSH_ENV}" > /dev/null
+     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
+fi
 #}}}
 
 bind -r '\C-s'
