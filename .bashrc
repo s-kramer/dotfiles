@@ -136,7 +136,12 @@ _isroot=false
     alias gs='git status'
     alias gc='git commit'
     alias gsh='git show'
-    alias gl='git log'
+    alias glo='git log'
+    alias ga='git add'
+    alias gc='git commit'
+    alias gd='git diff'
+    alias gp='git push'
+    alias gl='git pull'
   # }}}
   # AUTOCOLOR {{{
     alias ls='ls --color=auto'
@@ -178,11 +183,6 @@ _isroot=false
     alias tc='cd ~/sd/toolchains/'
     alias led='cd /sd/zynq-amp/leds/'
     alias ew='cd /sd/zynq-amp/ecos-work'
-    alias ga='git add'
-    alias gc='git commit'
-    alias gd='git diff'
-    alias gp='git push'
-    alias gl='git pull'
     alias pdf='cd /home/skramer/PDFs/'
   #}}}
   # COMPILATION {{{
