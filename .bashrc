@@ -79,6 +79,7 @@ _isroot=false
   export PATH=/usr/local/bin:$PATH
   export PATH=/home/skramer/scripts:$PATH
   export PATH=/home/skramer/bin:$PATH
+  export PATH=/opt/ccache-3.2.1/bin:$PATH
   #Ruby support
   if which ruby &>/dev/null; then
     GEM_DIR=$(ruby -rubygems -e 'puts Gem.user_dir')/bin
@@ -177,11 +178,15 @@ _isroot=false
     alias tc='cd ~/sd/toolchains/'
     alias led='cd /sd/zynq-amp/leds/'
     alias ew='cd /sd/zynq-amp/ecos-work'
+    alias ga='git add'
+    alias gc='git commit'
+    alias gd='git diff'
+    alias gp='git push'
     alias pdf='cd /home/skramer/PDFs/'
   #}}}
   # COMPILATION {{{
-    alias c+='clang++ -o '
-    alias c++='clang++ -Weverything -o '
+    alias c++='clang++ -o '
+    alias c+='clang++ -std=c++14 -o '
   #}}}
   # LOCALIZATION SHORTCUTS {{{
     alias hbrc='vim ~/.bashrc'
@@ -194,6 +199,7 @@ _isroot=false
     alias vrca='vim ~/.vim/autocmd.vim'
     alias b='cd ~/builds'
     alias c='cd ~/c_test'
+    alias p='cd ~/python_test'
   #}}}
   # PRIVILEGED ACCESS {{{
     if ! $_isroot; then
@@ -706,6 +712,27 @@ _isroot=false
       fi
   } 
   # }}}
+  # START THE SSH-AGENT#{{{
+SSH_ENV=$HOME/.ssh/environment
+   
+function start_agent {
+    echo "Initializing new SSH agent..."
+    # spawn ssh-agent
+    /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
+    echo succeeded
+    chmod 600 "${SSH_ENV}"
+    . "${SSH_ENV}" > /dev/null
+    /usr/bin/ssh-add
+}
+   
+if [ -f "${SSH_ENV}" ]; then
+     . "${SSH_ENV}" > /dev/null
+     ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
+        start_agent;
+    }
+else
+    start_agent;
+fi
 #}}}
   # REMOVE ORPHANED PACKAGES {{{
   removeOrphanedPackages() {
@@ -742,4 +769,5 @@ fi
 
 bind -r '\C-s'
 stty -ixon
+
 
