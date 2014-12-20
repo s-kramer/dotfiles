@@ -79,7 +79,7 @@ _isroot=false
   export PATH=/usr/local/bin:$PATH
   export PATH=/home/skramer/scripts:$PATH
   export PATH=/home/skramer/bin:$PATH
-  export PATH=/opt/ccache-3.2.1/bin:$PATH
+  export PATH=/opt/llvm-3.6/bin:$PATH
   #Ruby support
   if which ruby &>/dev/null; then
     GEM_DIR=$(ruby -rubygems -e 'puts Gem.user_dir')/bin
@@ -164,30 +164,22 @@ _isroot=false
     alias cd.........='cd ../../../../../../../../..'
     alias cd..........='cd ../../../../../../../../../..'
     alias cd...........='cd ../../../../../../../../../../..'
-    alias ..='cd ..'
     alias diff='colordiff'              # requires colordiff package
     alias du='du -c -h'
     alias e='exit'
     alias free='free -m'                # show sizes in MB
     alias grep='grep --color=auto'
-    alias grep='grep --color=tty -d skip'
     alias mkdir='mkdir -p -v'
     alias ping='ping -c 5'
     alias hbrc='vim ~/.bashrc'
     alias d='cd ~/data/'
     alias scr='cd ~/scripts'
     alias sd='cd /sd/'
-    alias sdx='cd /sd/Xilinx/14.7/ISE_DS/'
-    alias z='cd /sd/zynq-amp/'
-    alias zb='cd /sd/zedBoard/'
-    alias tc='cd ~/sd/toolchains/'
-    alias led='cd /sd/zynq-amp/leds/'
-    alias ew='cd /sd/zynq-amp/ecos-work'
     alias pdf='cd /home/skramer/PDFs/'
   #}}}
   # COMPILATION {{{
-    alias c++='clang++ -o '
-    alias c+='clang++ -std=c++14 -o '
+    alias c++='clang++ -Wall -o '
+    alias c+='clang++ -Wall -std=c++14 -o '
   #}}}
   # LOCALIZATION SHORTCUTS {{{
     alias hbrc='vim ~/.bashrc'
@@ -200,6 +192,7 @@ _isroot=false
     alias vrca='vim ~/.vim/autocmd.vim'
     alias b='cd ~/builds'
     alias c='cd ~/c_test'
+    alias dot='cd ~/.dotfiles'
     alias p='cd ~/python_test'
   #}}}
   # PRIVILEGED ACCESS {{{

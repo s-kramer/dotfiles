@@ -211,8 +211,8 @@ map ½ :tabn 6<cr>
 " ounmap [Z
 " map [Z <c-p>
 
-map <leader>f :pyf /home/skramer/scripts/clang-format.py<cr>
-imap <C-f> <c-o>:pyf /home/skramer/scripts/clang-format.py<cr>
+map <C-k> :pyf /home/skramer/scripts/clang-format.py<cr>
+imap <C-k> <c-o>:pyf /home/skramer/scripts/clang-format.py<cr>
 
 " Trigger makefile
 nmap <silent> <F5> :make<CR>
