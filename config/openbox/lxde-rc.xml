@@ -255,6 +255,12 @@
     <keybind key="A-F4">
       <action name="Close"/>
     </keybind>
+    <keybind key="A-F7">
+        <action name="Move"/>
+    </keybind>
+    <keybind key="A-F8">
+        <action name="Resize"/>
+    </keybind>
     <keybind key="A-Escape">
       <action name="Lower"/>
       <action name="FocusToBottom"/>

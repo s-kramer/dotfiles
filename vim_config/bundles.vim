@@ -71,7 +71,7 @@ if count(g:bundle_groups, 'devel')
   Plugin 'octol/vim-cpp-enhanced-highlight'
   " Plugin 'vim-scripts/LustyExplorer'
   Plugin 'mileszs/ack.vim'
-  Plugin 'Raimondi/delimitMate'
+  " Plugin 'Raimondi/delimitMate'
 endif
 " LANGUAGES"{{{
 if count(g:bundle_groups, 'languages')

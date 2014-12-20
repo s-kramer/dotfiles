@@ -161,6 +161,7 @@ map <Leader>rcp :tabnew ~/.vim/plugins.vim<CR>
 map <Leader>rcb :tabnew ~/.vim/bundles.vim<CR>
 map <Leader>rcf :tabnew ~/.vim/functions.vim<CR>
 map <Leader>rcs :tabnew ~/.vim/settings.vim<CR>
+map <Leader>rca :tabnew ~/.vim/autocmd.vim<CR>
 map <Leader>rcy :tabnew /opt/vim74/share/vim/vim74/ftplugin/cpp/.ycm_extra_conf.py<CR>
 
 " snippet edition
