@@ -1,1 +1,4 @@
 map <C-[> <esc>
+inoremap <C-a> <Ins><C-a><Ins>
+map <C-q> <Nop>
+

@@ -81,7 +81,7 @@ if count(g:bundle_groups, 'languages')
   " Plugin 'othree/javascript-libraries-syntax.vim'
   " Plugin 'ap/vim-css-color'
   " Plugin 'burnettk/vim-angular'
-  " Plugin 'davidhalter/jedi-vim'
+  Plugin 'davidhalter/jedi-vim'
   " Plugin 'tpope/vim-coffee-script'
   " Plugin 'tpope/vim-rails'
   " Plugin 'vim-ruby/vim-ruby'"}}}

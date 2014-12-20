@@ -112,8 +112,6 @@ nmap - <C-x>
 " nmap <silent> g# g#zz
 
 " Circular windows navigation
-nmap <C-j> <c-w>w
-nmap <C-k> <c-w>W
 map <Leader>o :only<CR>
 
 " Drag Current Line/s Vertically
@@ -140,7 +138,7 @@ nmap <silent> tw :set invwrap<CR>:set wrap?<CR>
 
 " Map <Leader>ff to display all lines with keyword under cursor
 " and ask which one to jump to
-nmap <F12> [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
+nmap g [I:let nr = input("Which one: ")<Bar>exe "normal " . nr ."[\t"<CR>
 
 " Underline the current line with '-'
 nmap <silent> <leader>ul :t.<CR>Vr-
@@ -211,7 +209,8 @@ map ½ :tabn 6<cr>
 " ounmap [Z
 " map [Z <c-p>
 
-map <C-k> :pyf /home/skramer/scripts/clang-format.py<cr>
+" map <C-k> :pyf /home/skramer/scripts/clang-format.py<cr>
+map <silent> <C-k> :1,$pyf /home/skramer/scripts/clang-format.py<cr>
 imap <C-k> <c-o>:pyf /home/skramer/scripts/clang-format.py<cr>
 
 " Trigger makefile
