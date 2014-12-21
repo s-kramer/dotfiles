@@ -352,12 +352,12 @@
 
     <keybind key="XF86AudioPlay">
       <action name="Execute">
-        <command>playerctl play</command>
+        <command>playerctl play-pause</command>
       </action>
     </keybind>
-    <keybind key="XF86AudioPause">
+    <keybind key="XF86AudioStop">
       <action name="Execute">
-        <command>playerctl pause</command>
+        <command>playerctl stop</command>
       </action>
     </keybind>
     <keybind key="XF86AudioNext">
@@ -380,9 +380,18 @@
       <action name="Execute">
         <command>xbacklight -5</command>
       </action>
-    </keybind>
-
-    <keybind key="W-Left">
+  </keybind>
+  <keybind key="C-Print">
+      <action name="Execute">
+          <command>scrot -s -e 'mv $f ~/Pictures/'</command>
+      </action>
+  </keybind>
+  <keybind key="Print">
+      <action name="Execute">
+          <command>scrot -e 'mv $f ~/Pictures/'</command>
+      </action>
+  </keybind>
+  <keybind key="W-Left">
       <action name="UnmaximizeFull"/>
       <action name="MaximizeVert"/>
       <action name="MoveResizeTo">

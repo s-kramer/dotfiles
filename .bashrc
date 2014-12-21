@@ -176,6 +176,8 @@ _isroot=false
     alias scr='cd ~/scripts'
     alias sd='cd /sd/'
     alias pdf='cd /home/skramer/PDFs/'
+    alias m='make'
+    alias mc='make clean'
   #}}}
   # COMPILATION {{{
     alias c++='clang++ -Wall -o '
