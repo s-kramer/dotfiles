@@ -168,7 +168,6 @@ _isroot=false
     alias du='du -c -h'
     alias e='exit'
     alias free='free -m'                # show sizes in MB
-    alias grep='grep --color=auto'
     alias mkdir='mkdir -p -v'
     alias ping='ping -c 5'
     alias hbrc='vim ~/.bashrc'
@@ -195,6 +194,7 @@ _isroot=false
     alias b='cd ~/builds'
     alias c='cd ~/c_test'
     alias dot='cd ~/.dotfiles'
+    alias tip='cd ~/tips'
     alias p='cd ~/python_test'
   #}}}
   # PRIVILEGED ACCESS {{{
@@ -220,7 +220,7 @@ _isroot=false
       alias pinu='sudo pacman -U'              # Install specific local package(s)
       alias pinf='pacman -Si'             # Display information about a given package in the repositories
       alias pre='sudo pacman -R'               # Remove the specified package(s), retaining its configuration(s) and required dependencies
-      alias pun='sudo pacman -Rcsn'            # Remove the specified package(s), its configuration(s) and unneeded dependencies
+      alias pun='sudo pacman -Rsn'            # Remove the specified package(s), its configuration(s) and unneeded dependencies
       alias pse='pacman -Ss'              # Search for package(s) in the repositories
 
       alias pacupa='pacman -Sy && sudo abs' # Update and refresh the local package and ABS databases against repositories

@@ -72,6 +72,7 @@ if count(g:bundle_groups, 'devel')
   " Plugin 'vim-scripts/LustyExplorer'
   Plugin 'mileszs/ack.vim'
   " Plugin 'Raimondi/delimitMate'
+  Plugin 'vim-scripts/a.vim'
 endif
 " LANGUAGES"{{{
 if count(g:bundle_groups, 'languages')
