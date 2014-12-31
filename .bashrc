@@ -194,6 +194,7 @@ _isroot=false
     alias b='cd ~/builds'
     alias c='cd ~/c_test'
     alias dot='cd ~/.dotfiles'
+    alias tip='cd ~/tips'
     alias p='cd ~/python_test'
   #}}}
   # PRIVILEGED ACCESS {{{
