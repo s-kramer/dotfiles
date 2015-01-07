@@ -62,6 +62,11 @@ _isroot=false
     # export TERM='xterm-color'
   fi
 #}}}
+## TMUX CONFIG#{{{
+    # If not running interactively, do not do anything
+    [[ $- != *i* ]] && return
+    [[ -z "$TMUX" ]] && exec tmux
+    #}}}
 ## BASH OPTIONS {{{
   shopt -s cdspell                 # Correct cd typos
   shopt -s checkwinsize            # Update windows size on command
@@ -172,6 +177,7 @@ _isroot=false
     alias mkdir='mkdir -p -v'
     alias ping='ping -c 5'
     alias hbrc='vim ~/.bashrc'
+    alias trc='vim ~/.dotfiles/tmux_config/tmux.conf'
     alias d='cd ~/data/'
     alias scr='cd ~/scripts'
     alias sd='cd /sd/'
