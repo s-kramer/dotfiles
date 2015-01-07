@@ -19,7 +19,8 @@ _isroot=false
 
     [[ -f $HOME/.dircolors_256 ]] && eval $(dircolors -b $HOME/.dircolors_256)
 
-    export TERM='xterm-256color'
+    # export TERM='xterm-256color'
+    export TERM='screen-256color'
 
     # for enabling 256 color, as per http://vim.wikia.com/wiki/256_colors_in_vim
     # if [ -e /usr/share/terminfo/x/xterm-256color ]; then
