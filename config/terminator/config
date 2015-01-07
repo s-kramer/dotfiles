@@ -4,10 +4,12 @@
 [keybindings]
   close_window = None
   next_tab = <Alt>l
+  split_horiz = None
   prev_tab = <Alt>h
   move_tab_right = <Primary><Shift><Alt>l
   close_term = None
   move_tab_left = <Primary><Shift><Alt>h
+  split_vert = None
   toggle_scrollbar = None
 [profiles]
   [[weird_default]]
