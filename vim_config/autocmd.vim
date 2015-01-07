@@ -56,4 +56,15 @@ if has("autocmd")
       command! -bang QA qa<bang>
       command! -bang Qa qa<bang>
   endif
+
+  " Set line wrapping in quick fix window
+  au FileType qf setlocal wrap linebreak 
+
+  " QuickFix List folding
+  au BufReadPost quickfix setlocal foldmethod=marker
+  au BufReadPost quickfix setlocal foldmarker=Entering\ directory,Leaving\ directory
+  au BufReadPost quickfix map <buffer> <silent> zq zM:g/error:/normal zv<CR>
+  au BufReadPost quickfix map <buffer> <silent> zw zq:g/warning:/normal zv<CR>
+  au BufReadPost quickfix normal zq
+
 endif

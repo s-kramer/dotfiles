@@ -45,6 +45,7 @@ if count(g:bundle_groups, 'general')
   Plugin 'tpope/vim-vinegar'
   Plugin 'tpope/vim-bundler'
   Plugin 'tpope/vim-unimpaired'
+  Plugin 'tpope/vim-dispatch'
   " Plugin 'troydm/easybuffer.vim'
   " Plugin 'yonchu/accelerated-smooth-scroll'
   "replace tools

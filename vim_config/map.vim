@@ -211,8 +211,14 @@ map ½ :tabn 6<cr>
 " map [Z <c-p>
 
 " map <C-k> :pyf /home/skramer/scripts/clang-format.py<cr>
-map <silent> <C-k> :1,$pyf /home/skramer/scripts/clang-format.py<cr>
+nmap <silent> <C-k> :1,$pyf /home/skramer/scripts/clang-format.py<cr>
+vmap <silent> <C-k> :pyf /home/skramer/scripts/clang-format.py<cr>
 imap <C-k> <c-o>:pyf /home/skramer/scripts/clang-format.py<cr>
 
 " Trigger makefile
-nmap <silent> <F5> :make<CR>
+nmap <silent> <F5> :wa<CR>:Make<CR>
+imap <silent> <F5> <Esc>:wa<CR>:Make<CR>
+
+" Trigger clang-check
+nmap <silent> <F4> :Dispatch scan-build <c-r>=GetMakePrgString()<CR><CR>
+imap <silent> <F4> <Esc>:call scan-build <c-r>=GetMakePrgString()<CR><CR>i
