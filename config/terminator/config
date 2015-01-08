@@ -23,9 +23,11 @@
   [[default]]
     scrollbar_position = hidden
     palette = "#000000:#cd0000:#00cd00:#cdcd00:#7dda6c:#cd00cd:#00cdcd:#e5e5e5:#4c4c4c:#ff0000:#00ff00:#ffff00:#4682b4:#ff00ff:#00ffff:#ffffff"
+    custom_command = tmux -2
     background_image = None
     cursor_color = "#f34b00"
     foreground_color = "#ffffff"
+    use_custom_command = True
     scroll_on_output = False
     show_titlebar = False
     scrollback_infinite = True

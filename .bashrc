@@ -64,8 +64,8 @@ _isroot=false
 #}}}
 ## TMUX CONFIG#{{{
     # If not running interactively, do not do anything
-    [[ $- != *i* ]] && return
-    [[ -z "$TMUX" ]] && exec tmux
+    # [[ $- != *i* ]] && return
+    # [[ -z "$TMUX" ]] && exec tmux
     #}}}
 ## BASH OPTIONS {{{
   shopt -s cdspell                 # Correct cd typos
