@@ -3,9 +3,9 @@
   focus = system
 [keybindings]
   close_window = None
-  next_tab = <Alt>l
+  next_tab = None
   split_horiz = None
-  prev_tab = <Alt>h
+  prev_tab = None
   move_tab_right = <Primary><Shift><Alt>l
   close_term = None
   move_tab_left = <Primary><Shift><Alt>h
