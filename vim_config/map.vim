@@ -36,9 +36,12 @@ cmap w!! :w !sudo tee % >/dev/null
 " write control
 " noremap <silent> <C-s> :update<CR>
 noremap <silent> <C-s> :write<CR>
+
 " Alt-key mapping
 noremap <silent> s :wa<CR>
-inoremap <silent> <C-S> <Esc>:update<CR>
+" inoremap <silent> <C-S> <Esc>:wa<CR>
+inoremap <silent> <C-S> <Esc>:wa<CR>
+
 map q :q<CR>
 map Q :qa<CR>
 
@@ -89,7 +92,7 @@ nmap Q gqap
 " vnoremap <S-Tab> <gv
 " nnoremap <Tab> >>
 " nnoremap <S-Tab> <<
- 
+
 " Map command-[ and command-] to indenting or outdenting
 " while keeping the original selection in visual mode
 "vmap ] >gv
@@ -169,7 +172,7 @@ map <Leader>scp :vsplit /usr/share/vim/vimfiles/UltiSnips/cpp.snippets<CR>
 map <Leader>scc :vsplit /usr/share/vim/vimfiles/UltiSnips/c.snippets<CR>
 
 " tab control
-map <Leader>T :tabnew 
+map <Leader>T :tabnew
 map <Leader>vt :tabnew ~/tips/vim_tips<CR>
 map <Leader>ww :vsplit<CR>:e 
 map <Leader>wv :split<CR>:e 
@@ -186,15 +189,15 @@ nmap cse :set spell! spelllang=en<CR>
 nmap csp :set spell! spelllang=pl<CR>
 
 " search expressions
-noremap <expr> :: ':%s:\v::g \|norm!``'.repeat("\<Left>", 12)
-noremap <expr> :" ':.,.+s:\v::g \|norm!``'.repeat("\<Left>",16)
-noremap <expr> :> ':.s:\v::g \|norm!``'.repeat("\<Left>", 12)
-noremap <expr> :$ ':.,$s:\v::g \|norm!``'.repeat("\<Left>", 12)
+noremap <expr> :: ':%S:::g \|norm!``'.repeat("\<Left>", 12)
+noremap <expr> :" ':.,.+S:::g \|norm!``'.repeat("\<Left>",14)
+noremap <expr> :> ':.S:::g \|norm!``'.repeat("\<Left>", 12)
+noremap <expr> :$ ':.,$S:::g \|norm!``'.repeat("\<Left>", 12)
 
-noremap <expr> :C: ':%s:\v::gc'.repeat("\<Left>", 4)
-noremap <expr> :C" ':.,.+s:\v::gc'.repeat("\<Left>", 8)
-noremap <expr> :C> ':.s:\v::gc'.repeat("\<Left>", 4)
-noremap <expr> :C$ ':.,$s:\v::gc'.repeat("\<Left>", 4)
+noremap <expr> :C: ':%S:::gc'.repeat("\<Left>", 4)
+noremap <expr> :C" ':.,.+S:::gc'.repeat("\<Left>", 6)
+noremap <expr> :C> ':.S:::gc'.repeat("\<Left>", 4)
+noremap <expr> :C$ ':.,$S:::gc'.repeat("\<Left>", 4)
 
 " tab switching
 map ≠ :tabn 1<cr>
@@ -220,5 +223,9 @@ nmap <silent> <F5> :wa<CR>:Make<CR>
 imap <silent> <F5> <Esc>:wa<CR>:Make<CR>
 
 " Trigger clang-check
-nmap <silent> <F4> :Dispatch scan-build <c-r>=GetMakePrgString()<CR><CR>
-imap <silent> <F4> <Esc>:call scan-build <c-r>=GetMakePrgString()<CR><CR>i
+nmap <silent> <F4> :Dispatch scan-build -v `cat /home/skramer/scripts/scan_build_checker_list` <c-r>=GetScanBuildMakePrgString()<CR><CR>
+imap <silent> <F4> <Esc>:Dispatch scan-build -v `cat /home/skramer/scripts/scan_build_checker_list` <c-r>=GetScanBuildMakePrgString()<CR><CR>i
+
+" Trigger clang-rename
+map  <leader>rr :call ClangRename()<CR>
+imap  <leader>rr <C-o>:call ClangRename()<CR>i

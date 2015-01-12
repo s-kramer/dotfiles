@@ -51,6 +51,7 @@ if count(g:bundle_groups, 'general')
   "replace tools
   " Plugin 'dkprice/vim-easygrep'
   " Plugin 'hwrod/interactive-replace'
+  Plugin 'djoshea/vim-autoread'
 endif
 " DEVELOPER
 if count(g:bundle_groups, 'devel')

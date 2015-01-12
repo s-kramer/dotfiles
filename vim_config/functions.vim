@@ -136,6 +136,33 @@ function! ClangCheck()
   endif
 endfunction
 
-function! GetMakePrgString()
-    return &makeprg
+function! GetBuildMakePrgString()
+    return GetMakePrgStringForPath("build")
 endfunction
+
+function! GetScanBuildMakePrgString()
+    return GetMakePrgStringForPath("scan-build")
+endfunction
+
+function! GetMakePrgStringForPath(build_path)
+    return "make -s -C ".a:build_path
+endfunction
+
+function! ClangRename()
+    call inputsave()
+    let l:newName = input('Enter new name for '.expand("<cword>").': ')
+    call inputrestore()
+    if l:newName == ""
+        return
+    endif
+
+python << EOF
+import sys
+import vim
+sys.argv = [vim.eval("newName")]
+EOF
+
+    execute "echo '\n'"
+    execute "wall"
+    execute "pyf /home/skramer/scripts/clang-rename.py"
+endfunct
