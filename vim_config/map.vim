@@ -229,3 +229,6 @@ imap <silent> <F4> <Esc>:Dispatch scan-build -v `cat /home/skramer/scripts/scan_
 " Trigger clang-rename
 map  <leader>rr :call ClangRename()<CR>
 imap  <leader>rr <C-o>:call ClangRename()<CR>i
+
+" Open tag in a new tab
+map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
