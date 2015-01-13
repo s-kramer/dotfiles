@@ -172,7 +172,7 @@ map <Leader>scp :vsplit /usr/share/vim/vimfiles/UltiSnips/cpp.snippets<CR>
 map <Leader>scc :vsplit /usr/share/vim/vimfiles/UltiSnips/c.snippets<CR>
 
 " tab control
-map <Leader>T :tabnew
+map <Leader>T :tabnew 
 map <Leader>vt :tabnew ~/tips/vim_tips<CR>
 map <Leader>ww :vsplit<CR>:e 
 map <Leader>wv :split<CR>:e 
