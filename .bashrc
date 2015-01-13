@@ -55,7 +55,7 @@ _isroot=false
       export PS1="$GY[$Y\t$GY:$LB\w$GY]$W\$ "
       export LS_COLORS="di=00;34:ow=00;97;41:ex=01;31:ln=04;32:or=05;31:*.py=32:*.rb=100:*.php=37:*.html=04;94:*.js=00;96:*.css=00;96:*.sass=00;96:*.scss=00;96:*.gitignore=04;31:*.gitmodules=04;31:*.gitattributes=04;31:*.localized=04;31:*.rbenv-version=04;31:*.rvmrc=04;31:*.nanorc=04;31:*.htoprc=04;31:*.netrc=04;31:*.md=30;106:*.markdown=30;106:*.DS_Store=07:*.tar=04;32:*.tgz=04;32:*.zip=04;32:*.rar=04;32:*.sfv=04;32:*.jpg=01;34;40:*.png=01;34;40:*.gif=01;34;40:*.mkv=01;34;44:*.avi=01;34;44:*.mov=01;34;44:*.mp4=01;34;44:*.flv=01;34;44:*.pdf=04;33:*.txt=37:*.csv=37:*.json=37:*.sh=37;40:*.bash_history=00;90:*.gdb_history=00;90:*.irb_history=00;90:*.mysql_history=00;90:*.php_history=00;90:*.psql_history=00;90:*.lesshst=00;90"
     # else
-    # [user@host:rel_path] \$: 
+    # [user@host:rel_path] \$:
       # export PS1="$GY[$Y\u$GY@$P\h$GY:$B\w$GY]$W \$(get_prompt_symbol) "
     # fi
   # else
@@ -713,11 +713,11 @@ _isroot=false
       else
           sudo pacman -Rns $(pacman -Qdtq)
       fi
-  } 
+  }
   # }}}
   # START THE SSH-AGENT#{{{
 SSH_ENV=$HOME/.ssh/environment
-   
+
 function start_agent {
     echo "Initializing new SSH agent..."
     # spawn ssh-agent
@@ -727,7 +727,7 @@ function start_agent {
     . "${SSH_ENV}" > /dev/null
     /usr/bin/ssh-add
 }
-   
+
 if [ -f "${SSH_ENV}" ]; then
      . "${SSH_ENV}" > /dev/null
      ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
@@ -744,11 +744,11 @@ fi
       else
           sudo pacman -Rns $(pacman -Qdtq)
       fi
-  } 
+  }
   # }}}
   # START SSH AGENT  #{{{
 SSH_ENV=$HOME/.ssh/environment
-   
+
 # start the ssh-agent
 function start_agent {
     echo "Initializing new SSH agent..."
@@ -759,7 +759,7 @@ function start_agent {
     . "${SSH_ENV}" > /dev/null
     /usr/bin/ssh-add
 }
-   
+
 if [ -f "${SSH_ENV}" ]; then
      . "${SSH_ENV}" > /dev/null
      ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
@@ -775,5 +775,3 @@ fi
 
 bind -r '\C-s'
 stty -ixon
-
-

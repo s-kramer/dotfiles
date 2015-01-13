@@ -58,7 +58,7 @@ if has("autocmd")
   endif
 
   " Set line wrapping in quick fix window
-  au FileType qf setlocal wrap linebreak 
+  au FileType qf setlocal wrap linebreak
 
   " QuickFix List folding
   au BufReadPost quickfix setlocal foldmethod=marker
@@ -67,4 +67,12 @@ if has("autocmd")
   au BufReadPost quickfix map <buffer> <silent> zw zq:g/warning:/normal zv<CR>
   au BufReadPost quickfix normal zq
 
+  " Return to last edit position when opening files (You want this!)
+  autocmd BufReadPost *
+              \ if line("'\"") > 0 && line("'\"") <= line("$") |
+              \ exe "normal! g`\"" |
+              \ endif
+
+  " Remember info about open buffers on close
+  set viminfo^=%
 endif

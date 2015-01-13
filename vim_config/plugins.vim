@@ -122,14 +122,14 @@
   au Syntax * RainbowParenthesesLoadRound
   au Syntax * RainbowParenthesesLoadSquare
   au Syntax * RainbowParenthesesLoadBraces"}}}
-   
+
 " " signify"{{{
   " let g:signify_sign_overwrite = 1
   " let g:signify_sign_add = '+'
   " let g:signify_sign_change = '!'
   " let g:signify_sign_delete = '-'
   " let g:signify_sign_delete_first_line = '-'"}}}
-  
+
 " " syntastic"{{{
   " let g:syntastic_enable_balloons = 1
   " let g:syntastic_auto_jump=0
@@ -284,3 +284,6 @@
   " DelimitMate"{{{
   " let delimitMate_matchpairs = "(:),[:],{:},<:>"
   " au FileType cpp let b:delimitMate_matchpairs = "(:),[:],{:},<:>,<<: , < :\b" "}}}
+  "
+  " vim-abolish
+  map // :S/
