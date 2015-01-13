@@ -112,7 +112,7 @@ nmap - <C-x>
 " nmap <silent> g# g#zz
 
 " Circular windows navigation
-map <Leader>o :only<CR>
+map <silent> <Leader>o :only<CR>
 
 " Drag Current Line/s Vertically
 " Bubble single lines
