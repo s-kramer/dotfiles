@@ -1,0 +1,90 @@
+# By Sergey Alexandrov
+# https://code.google.com/p/mcf/source/browse/.vim/snippets/cmake.snippets
+
+snippet sec "Section comment" !b
+`!p
+padding = 78 - len(t[1]) - 8
+snip.rv = '#...: '
+`${1:Section}`!p
+snip.rv = ' :' + padding * '.'`
+$0
+endsnippet
+
+snippet c++11 "Compile for the new C++ standard" !b
+#...: gnu++0x
+if(CMAKE_COMPILER_IS_GNUCXX)
+	execute_process(COMMAND ${CMAKE_C_COMPILER} -dumpversion OUTPUT_VARIABLE GCC_VERSION)
+	if(GCC_VERSION VERSION_GREATER 4.6 OR GCC_VERSION VERSION_EQUAL 4.6)
+		add_definitions(-std=gnu++0x)
+	else(GCC_VERSION VERSION_GREATER 4.6 OR GCC_VERSION VERSION_EQUAL 4.6)
+		message(SEND_ERROR "You need GCC version 4.6 or greater to compile this package.")
+	endif(GCC_VERSION VERSION_GREATER 4.6 OR GCC_VERSION VERSION_EQUAL 4.6)
+endif(CMAKE_COMPILER_IS_GNUCXX)
+endsnippet
+
+snippet werror "Warnings and errors" !b
+#...: treat warnings as errors and disable centain warnings
+add_definitions(-Werror)
+add_definitions(-Wno-error=unused-variable)
+add_definitions(-Wno-error=unknown-pragmas)
+add_definitions(-Wno-unknown-pragmas)
+add_definitions(-Wno-deprecated)
+endsnippet
+
+snippet exe "Add executable target" !b
+add_executable(${1:test} ${2:src/test.cpp})
+endsnippet
+
+snippet link "Link libraries" !b
+target_link_libraries(${1:test} ${2:library})
+endsnippet
+
+snippet cmake
+cmake_minimum_required(VERSION 2.6)
+project(${1:ProjectName})
+find_package(${2:LIBRARY})
+include_directories(${$2_INCLUDE_DIR})
+add_subdirectory(${3:src})
+add_executable($1)
+target_link_libraries($1 ${$2_LIBRARIES})
+endsnippet
+
+snippet include
+include_directories(${${1:INCLUDE_DIR}})
+endsnippet
+
+snippet find
+find_package(${1:LIBRARY})
+endsnippet
+
+snippet glob
+file(GLOB ${1:SRCS} *.${2:cpp})
+endsnippet
+
+snippet subdir
+add_subdirectory(${1:src})
+endsnippet
+
+snippet lib
+add_library(${1:lib} ${2:STATIC} ${${3:SRCS}})
+endsnippet
+
+snippet link
+target_link_libraries(${1:bin} ${2:somelib})
+endsnippet
+
+snippet bin
+add_executable(${1:bin})
+endsnippet
+
+snippet set
+set(${1:var} ${2:val})
+endsnippet
+
+snippet dep
+add_dependencies(${1:target} ${2:dep})
+endsnippet
+
+snippet props
+set_target_properties(${1:target} ${2:PROPERTIES} ${3:COMPILE_FLAGS} ${4:"-O3 -Wall -pedantic"})
+endsnippet
