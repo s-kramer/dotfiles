@@ -141,7 +141,7 @@ function! GetBuildMakePrgString()
 endfunction
 
 function! GetScanBuildMakePrgString()
-    return GetMakePrgStringForPath("scan-build")
+    return GetMakePrgStringForPath("scan-build clang-tests")
 endfunction
 
 function! GetMakePrgStringForPath(build_path)
