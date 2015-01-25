@@ -89,6 +89,9 @@ if count(g:bundle_groups, 'languages')
   " Plugin 'tpope/vim-coffee-script'
   " Plugin 'tpope/vim-rails'
   " Plugin 'vim-ruby/vim-ruby'"}}}
+  " '
+  " Plugin 'lukerandall/haskellmode-vim'
+  " Plugin 'dag/vim2hs'
 endif
 " COLORSCHEME"{{{
 if count(g:bundle_groups, 'colorscheme')
