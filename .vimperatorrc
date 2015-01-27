@@ -3,7 +3,5 @@ inoremap <C-a> <Ins><C-a><Ins>
 map <C-q> <Nop>
 map <C-S-w> <Nop>
 
-/* vnoremap <C-v> <Ins>p<Ins> */
-
-/* inoremap <C-c> <C-v><C-c> */
-/* vnoremap <C-c> <Ins>Y<Ins> */
+nmap <C-c> <Ins><C-c><Ins>
+nmap <C-v> <Ins><C-v><Ins>
