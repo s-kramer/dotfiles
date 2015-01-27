@@ -76,6 +76,7 @@ if count(g:bundle_groups, 'devel')
   " Plugin 'Raimondi/delimitMate'
   Plugin 'vim-scripts/a.vim'
   Plugin 'godlygeek/tabular'
+  Plugin 'scrooloose/syntastic'
 endif
 " LANGUAGES"{{{
 if count(g:bundle_groups, 'languages')
@@ -89,9 +90,11 @@ if count(g:bundle_groups, 'languages')
   " Plugin 'tpope/vim-coffee-script'
   " Plugin 'tpope/vim-rails'
   " Plugin 'vim-ruby/vim-ruby'"}}}
-  " '
+  "Haskell
+  Plugin 'eagletmt/ghcmod-vim'
   " Plugin 'lukerandall/haskellmode-vim'
-  " Plugin 'dag/vim2hs'
+  Plugin 'dag/vim2hs'
+  Plugin 'Shougo/vimproc.vim'
 endif
 " COLORSCHEME"{{{
 if count(g:bundle_groups, 'colorscheme')

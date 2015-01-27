@@ -32,8 +32,8 @@ set noerrorbells " No noise.
 set vb t_vb=     " disable any beeps or flashes on error
 
 " Use the '*' register as well as the the '+' register if it's available too
-set clipboard=unnamed
-if has('unnamedplus')|set clipboard+=unnamedplus|endif
+" set clipboard=unnamed
+" if has('unnamedplus')|set clipboard+=unnamedplus|endif
 
 " Configure to primarily use utf8
 if has("multi_byte")

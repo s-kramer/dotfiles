@@ -2,3 +2,8 @@ map <C-[> <esc>
 inoremap <C-a> <Ins><C-a><Ins>
 map <C-q> <Nop>
 map <C-S-w> <Nop>
+
+/* vnoremap <C-v> <Ins>p<Ins> */
+
+/* inoremap <C-c> <C-v><C-c> */
+/* vnoremap <C-c> <Ins>Y<Ins> */
