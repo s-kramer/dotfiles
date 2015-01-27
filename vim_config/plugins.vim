@@ -270,6 +270,9 @@
   " NERDCommenter"{{{
   let NERDSpaceDelims = 1
   let NERD_c_alt_style = 1
+  let NERD_haskell_alt_style = 1
+  let NERD_haskel_alt_style = 1
+  let NERD_HASKELL_alt_style = 1
 "}}}
 
   " Latex-suite"{{{
@@ -287,3 +290,19 @@
   "
   " vim-abolish
   map // :S/
+
+  " ghc-mod
+  " let $PATH = $PATH . ':' . expand('~/.cabal/bin')
+  "
+  " haskell-vim
+  let g:haskell_indent_if = 3
+  let g:haskell_indent_case = 5
+  let g:haskell_indent_let = 4
+  let g:haskell_indent_where = 6
+  let g:haskell_indent_do = 3
+  let g:haskell_indent_in = 1
+  let g:haskell_enable_quantification = 1
+  let g:haskell_enable_recursivedo = 1
+  let g:haskell_enable_arrowsyntax = 1
+  let g:haskell_enable_pattern_synonyms = 1
+  let g:haskell_enable_typeroles = 1
