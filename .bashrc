@@ -189,6 +189,7 @@ _isroot=false
   # COMPILATION {{{
     alias c++='clang++ -Wall -o '
     alias c+='clang++ -Wall -std=c++14 -o '
+    alias ghc='ghc -outputdir /tmp/ '
   #}}}
   # LOCALIZATION SHORTCUTS {{{
     alias hbrc='vim ~/.bashrc'
