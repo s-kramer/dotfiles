@@ -75,6 +75,7 @@ if count(g:bundle_groups, 'devel')
   " Plugin 'Raimondi/delimitMate'
   Plugin 'godlygeek/tabular'
   Plugin 'scrooloose/syntastic'
+  Plugin 'jpalardy/vim-slime'
 endif
 " LANGUAGES"{{{
 if count(g:bundle_groups, 'languages')
@@ -96,6 +97,7 @@ if count(g:bundle_groups, 'languages')
   " Plugin 'dag/vim2hs'
   " Plugin 'Shougo/vimproc.vim'
   Plugin 'raichoo/haskell-vim'
+  Plugin 'bitc/vim-hdevtools'
 endif
 " COLORSCHEME"{{{
 if count(g:bundle_groups, 'colorscheme')

@@ -86,6 +86,7 @@ _isroot=false
   export PATH=/home/skramer/scripts:$PATH
   export PATH=/home/skramer/bin:$PATH
   export PATH=/opt/llvm-3.6/bin:$PATH
+  export PATH=/home/skramer/.cabal/bin:$PATH
   #Ruby support
   if which ruby &>/dev/null; then
     GEM_DIR=$(ruby -rubygems -e 'puts Gem.user_dir')/bin

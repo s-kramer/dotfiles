@@ -130,15 +130,18 @@
   " let g:signify_sign_delete = '-'
   " let g:signify_sign_delete_first_line = '-'"}}}
 
-" " syntastic"{{{
-  " let g:syntastic_enable_balloons = 1
-  " let g:syntastic_auto_jump=0
-  " let g:syntastic_always_populate_loc_list=1
-  " let g:syntastic_auto_loc_list=1
-  " let g:syntastic_loc_list_height=5
-  " let g:syntastic_enable_signs=1
-  " let g:syntastic_error_symbol='✗'
-  " let g:syntastic_warning_symbol='⚠'"}}}
+" syntastic"{{{
+  let g:syntastic_enable_balloons = 1
+  let g:syntastic_auto_jump=0
+  let g:syntastic_always_populate_loc_list=1
+  let g:syntastic_auto_loc_list=1
+  let g:syntastic_loc_list_height=5
+  let g:syntastic_enable_signs=1
+  let g:syntastic_error_symbol='✗'
+  let g:syntastic_warning_symbol='⚠'
+  let g:syntastic_haskell_checkers = ['ghc-mod', 'hdevtools', 'hlint']
+  "}}}
+
 
 " tabularize"{{{
   " vmap <Leader>a=  :Tabularize /=<CR>
@@ -306,3 +309,12 @@
   let g:haskell_enable_arrowsyntax = 1
   let g:haskell_enable_pattern_synonyms = 1
   let g:haskell_enable_typeroles = 1
+
+
+  " vim-slime
+  let g:slime_target = "tmux"
+
+  " hdevtools
+  au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+  au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+  au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
