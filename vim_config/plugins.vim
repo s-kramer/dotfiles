@@ -140,6 +140,7 @@
   let g:syntastic_error_symbol='✗'
   let g:syntastic_warning_symbol='⚠'
   let g:syntastic_haskell_checkers = ['ghc-mod', 'hdevtools', 'hlint']
+  let g:syntastic_python_python_exec = '/usr/bin/python2.7'
   "}}}
 
 
