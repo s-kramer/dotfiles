@@ -140,6 +140,8 @@
   let g:syntastic_error_symbol='✗'
   let g:syntastic_warning_symbol='⚠'
   let g:syntastic_haskell_checkers = ['ghc-mod', 'hdevtools', 'hlint']
+
+  let g:syntastic_python_python_exec = '/usr/bin/python2.7'
   "}}}
 
 
@@ -247,7 +249,9 @@
 
   " UntiSnips"{{{
   let g:UltiSnipsExpandTrigger="<c-j>"
-  let g:UltiSnipsSnippetDirectories=["/home/skramer/.vim/bundle/UltiSnips/UltiSnips", "/usr/share/vim/vimfiles/UltiSnips"]"}}}
+  " let g:UltiSnipsSnippetDirectories=["/home/skramer/.vim/bundle/UltiSnips/UltiSnips", "/usr/share/vim/vimfiles/UltiSnips"]"}}}
+  let g:UltiSnipsSnippetDirectories=["/home/skramer/.vim/bundle/UltiSnips/UltiSnips"]
+  "}}}
 
   " YouCompleteMe"{{{
   let g:ycm_confirm_extra_conf = 0
@@ -318,3 +322,6 @@
   au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
   au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
   au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
+
+  " jedi-vim
+ " let g:jedi#popup_select_first=0

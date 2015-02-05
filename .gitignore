@@ -1,0 +1,11 @@
+config/openbox/autostart
+.dircolors
+.dircolors_256
+vim_config/autocmd.vim
+vim_config/bundles.vim
+vim_config/functions.vim
+vim_config/map.vim
+vim_config/plugins.vim
+vim_config/settings.vim
+vim_config/vimrc
+vim_config/.ycm_extra_conf.py
