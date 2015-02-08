@@ -214,21 +214,21 @@ map ½ :tabn 6<cr>
 " map [Z <c-p>
 
 " map <C-k> :pyf /home/skramer/scripts/clang-format.py<cr>
-nmap <silent> <C-k> :1,$pyf /home/skramer/scripts/clang-format.py<cr>
-vmap <silent> <C-k> :pyf /home/skramer/scripts/clang-format.py<cr>
-imap <C-k> <c-o>:pyf /home/skramer/scripts/clang-format.py<cr>
+autocmd FileType cpp nmap <silent> <C-k> :1,$pyf /home/skramer/scripts/clang-format.py<cr>
+autocmd FileType cpp vmap <silent> <C-k> :pyf /home/skramer/scripts/clang-format.py<cr>
+autocmd FileType cpp imap <C-k> <c-o>:pyf /home/skramer/scripts/clang-format.py<cr>
 
 " Trigger makefile
 nmap <silent> <F5> :wa<CR>:Make<CR>
 imap <silent> <F5> <Esc>:wa<CR>:Make<CR>
 
 " Trigger clang-check
-nmap <silent> <F4> :Dispatch scan-build -v `cat /home/skramer/scripts/scan_build_checker_list` <c-r>=GetScanBuildMakePrgString()<CR><CR>
-imap <silent> <F4> <Esc>:Dispatch scan-build -v `cat /home/skramer/scripts/scan_build_checker_list` <c-r>=GetScanBuildMakePrgString()<CR><CR>i
+autocmd FileType cpp nmap <silent> <F4> :Dispatch scan-build -v `cat /home/skramer/scripts/scan_build_checker_list` <c-r>=GetScanBuildMakePrgString()<CR><CR>
+autocmd FileType cpp imap <silent> <F4> <Esc>:Dispatch scan-build -v `cat /home/skramer/scripts/scan_build_checker_list` <c-r>=GetScanBuildMakePrgString()<CR><CR>i
 
 " Trigger clang-rename
-map  <leader>rr :call ClangRename()<CR>
-imap  <leader>rr <C-o>:call ClangRename()<CR>i
+autocmd FileType cpp map  <leader>rr :call ClangRename()<CR>
+autocmd FileType cpp imap  <leader>rr <C-o>:call ClangRename()<CR>i
 
 " Open tag in a new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
