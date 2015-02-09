@@ -1,0 +1,2 @@
+:def ho \x -> return $ ":!hoogle --color \"" ++ x ++ "\""
+:def doc \x -> return $ ":!hoogle --info \"" ++ x ++ "\""
