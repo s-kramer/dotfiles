@@ -98,6 +98,7 @@ if count(g:bundle_groups, 'languages')
   " Plugin 'Shougo/vimproc.vim'
   Plugin 'raichoo/haskell-vim'
   Plugin 'bitc/vim-hdevtools'
+  Plugin 'eagletmt/neco-ghc'
 endif
 " COLORSCHEME"{{{
 if count(g:bundle_groups, 'colorscheme')

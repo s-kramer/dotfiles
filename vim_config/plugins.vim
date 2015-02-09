@@ -239,10 +239,10 @@
 
   " " Enable omni completion.
   " autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-  " autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
+  autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
   " autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
   " autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-  " autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+  autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
   " autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
   " autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags"}}}
 
@@ -323,4 +323,7 @@
   au FileType haskell nnoremap <buffer> <silent> <F3> :HdevtoolsInfo<CR>
 
   " jedi-vim
- " let g:jedi#popup_select_first=0
+  " let g:jedi#popup_select_first=0
+
+  " neco-ghc
+  let g:ycm_semantic_triggers = {'haskell' : ['.']}
