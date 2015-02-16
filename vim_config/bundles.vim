@@ -76,6 +76,7 @@ if count(g:bundle_groups, 'devel')
   Plugin 'godlygeek/tabular'
   Plugin 'scrooloose/syntastic'
   Plugin 'jpalardy/vim-slime'
+  Plugin 'nvie/vim-flake8'
 endif
 " LANGUAGES"{{{
 if count(g:bundle_groups, 'languages')
