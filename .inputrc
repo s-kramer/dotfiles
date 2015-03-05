@@ -1,4 +1,3 @@
-"\e\C-e": alias-expand-line
 
 set editing-mode vi
 $if mode=vi
@@ -6,8 +5,11 @@ $if mode=vi
 set keymap vi-command
 # these are for vi-command mode
 Control-l: clear-screen
+"\e\C-e": alias-expand-line
 
 set keymap vi-insert
 # these are for vi-insert mode
 Control-l: clear-screen 
+"\e.":yank-last-arg
+"\e\C-e": alias-expand-line
 $endif
