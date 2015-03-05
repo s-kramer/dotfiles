@@ -326,4 +326,4 @@
   " let g:jedi#popup_select_first=0
 
   " neco-ghc
-  let g:ycm_semantic_triggers = {'haskell' : ['.']}
+ let g:ycm_semantic_triggers = {'haskell' : ['.']}
