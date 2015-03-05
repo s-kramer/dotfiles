@@ -80,6 +80,8 @@ _isroot=false
       . /etc/bash_completion
     fi
   #}}}
+  set -o vi
+  bind -m vi-insert "\C-l":clear-screen
 #}}}
 ## EXPORTS {{{
   export PATH=/usr/local/bin:$PATH
