@@ -5,6 +5,7 @@ $if mode=vi
 set keymap vi-command
 # these are for vi-command mode
 Control-l: clear-screen
+"\e.":yank-last-arg
 "\e\C-e": alias-expand-line
 
 set keymap vi-insert
