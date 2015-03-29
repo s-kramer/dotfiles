@@ -778,7 +778,6 @@ else
 fi
 #}}}
   # BASH FOR LOOP  #{{{
-  alias for='for v in do done'
   # }}}
 
 bind -r '\C-s'
