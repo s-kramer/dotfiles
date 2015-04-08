@@ -100,6 +100,9 @@ if count(g:bundle_groups, 'languages')
   Plugin 'raichoo/haskell-vim'
   Plugin 'bitc/vim-hdevtools'
   Plugin 'eagletmt/neco-ghc'
+
+  Plugin 'suan/vim-instant-markdown'
+  Plugin 'plasticboy/vim-markdown'
 endif
 " COLORSCHEME"{{{
 if count(g:bundle_groups, 'colorscheme')
