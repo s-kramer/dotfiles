@@ -254,7 +254,7 @@
 
   " YouCompleteMe"{{{
   let g:ycm_confirm_extra_conf = 0
-  let g:ycm_global_ycm_extra_conf = '/opt/vim74/share/vim/vim74/ftplugin/cpp/.ycm_extra_conf.py'
+  let g:ycm_global_ycm_extra_conf = '/home/skramer/.dotfiles/vim_config/.ycm_extra_conf.py'
   let g:ycm_enable_diagnostic_signs = 1
   let g:ycm_enable_diagnostic_highlighting = 1
   let g:ycm_autoclose_preview_window_after_completion = 0
