@@ -26,16 +26,21 @@ endif
 " Plugins here:
 " GENERAL
 if count(g:bundle_groups, 'general')
+  " Inactive
   " Plugin 'hotoo/calendar-vim'
-  Plugin 'bling/vim-airline'
   " Plugin 'Lokaltog/vim-easymotion'
   " Plugin 'Stormherz/tablify'
   " Plugin 'chrisbra/NrrwRgn'
   " Plugin 'kien/ctrlp.vim'
   " Plugin 'tacahiroy/ctrlp-funky'
   " Plugin 'kris89/vim-multiple-cursors'
+  " Plugin 'troydm/easybuffer.vim'
+  " Plugin 'yonchu/accelerated-smooth-scroll'
+  " Plugin 'dkprice/vim-easygrep'
+  " Plugin 'hwrod/interactive-replace'
+  " Active
+  Plugin 'bling/vim-airline'
   Plugin 'mbbill/undotree'
-  " Fancy start screen
   Plugin 'mhinz/vim-startify'
   Plugin 'tpope/vim-abolish'
   Plugin 'tpope/vim-commentary'
@@ -46,15 +51,11 @@ if count(g:bundle_groups, 'general')
   Plugin 'tpope/vim-bundler'
   Plugin 'tpope/vim-unimpaired'
   Plugin 'tpope/vim-dispatch'
-  " Plugin 'troydm/easybuffer.vim'
-  " Plugin 'yonchu/accelerated-smooth-scroll'
-  "replace tools
-  " Plugin 'dkprice/vim-easygrep'
-  " Plugin 'hwrod/interactive-replace'
   Plugin 'djoshea/vim-autoread'
 endif
 " DEVELOPER
 if count(g:bundle_groups, 'devel')
+  " Inactive
   " Plugin 'mattn/emmet-vim'
   " Plugin 'AzizLight/TaskList.vim'
   " Plugin 'Chiel92/vim-autoformat'
@@ -62,26 +63,30 @@ if count(g:bundle_groups, 'devel')
   " Plugin 'Yggdroot/indentLine'
   " Plugin 'gcmt/wildfire.vim'
   " Plugin 'godlygeek/tabular'
-  Plugin 'kien/rainbow_parentheses.vim'
   " Plugin 'mhinz/vim-signify'
+  " Plugin 'vim-scripts/LustyExplorer'
+  " Plugin 'Raimondi/delimitMate'
+  " Plugin 'scrooloose/syntastic'
+  " Plugin 'nvie/vim-flake8'
+   
+  " Active
+  Plugin 'kien/rainbow_parentheses.vim'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'vim-scripts/UltiSnips'
   Plugin 'Valloric/YouCompleteMe'
-  Plugin 'majutsushi/tagbar'
-  Plugin 'Command-T'
+  " Plugin 'majutsushi/tagbar'
+  " Plugin 'Command-T'
   Plugin 'tommcdo/vim-exchange'
-  " Plugin 'vim-scripts/LustyExplorer'
   Plugin 'mileszs/ack.vim'
-  " Plugin 'Raimondi/delimitMate'
-  Plugin 'godlygeek/tabular'
-  " Plugin 'scrooloose/syntastic'
-  Plugin 'jpalardy/vim-slime'
-  " Plugin 'nvie/vim-flake8'
+  " Plugin 'godlygeek/tabular'
 endif
 " LANGUAGES"{{{
 if count(g:bundle_groups, 'languages')
-  Plugin 'octol/vim-cpp-enhanced-highlight'
+  " Cpp active
+  " Plugin 'octol/vim-cpp-enhanced-highlight'
+  " Other active
   Plugin 'vim-scripts/a.vim'
+  " Other inactive
   " Plugin 'sheerun/vim-polyglot'
   " Plugin 'othree/html5.vim'
   " Plugin 'pangloss/vim-javascript'
@@ -92,27 +97,31 @@ if count(g:bundle_groups, 'languages')
   " Plugin 'tpope/vim-coffee-script'
   " Plugin 'tpope/vim-rails'
   " Plugin 'vim-ruby/vim-ruby'"}}}
-  "Haskell
+  
+  " Haskell inactive
   " Plugin 'eagletmt/ghcmod-vim'
-  " Plugin 'lukerandall/haskellmode-vim'
-  " Plugin 'dag/vim2hs'
   " Plugin 'Shougo/vimproc.vim'
+  " Plugin 'lukerandall/haskellmode-vim'
+  Plugin 'dag/vim2hs'
+  " Haskell Active
+  " Plugin 'bitc/vim-hdevtools'
   Plugin 'raichoo/haskell-vim'
-  Plugin 'bitc/vim-hdevtools'
   Plugin 'eagletmt/neco-ghc'
+  Plugin 'jpalardy/vim-slime'
 
-  Plugin 'suan/vim-instant-markdown'
-  Plugin 'plasticboy/vim-markdown'
+  "Markdown active
+  " Plugin 'suan/vim-instant-markdown'
+  " Plugin 'plasticboy/vim-markdown'
 endif
 " COLORSCHEME"{{{
 if count(g:bundle_groups, 'colorscheme')
+  Plugin 'sjl/badwolf'
+  Plugin 'flazz/vim-colorschemes'
   " Plugin 'altercation/vim-colors-solarized'
   " Plugin 'morhetz/gruvbox'
-  Plugin 'sjl/badwolf'
   " Plugin 'chriskempson/base16-vim'
   " Plugin 'flazz/vim-colorschemes'
   " Plugin 'guns/xterm-color-table.vim'
-  Plugin 'flazz/vim-colorschemes'
   " Plugin 'CSApprox'
 endif
 
