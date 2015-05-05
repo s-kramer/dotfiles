@@ -102,9 +102,9 @@ if count(g:bundle_groups, 'languages')
   " Plugin 'eagletmt/ghcmod-vim'
   " Plugin 'Shougo/vimproc.vim'
   " Plugin 'lukerandall/haskellmode-vim'
-  Plugin 'dag/vim2hs'
+  " Plugin 'dag/vim2hs'
   " Haskell Active
-  " Plugin 'bitc/vim-hdevtools'
+  Plugin 'bitc/vim-hdevtools'
   Plugin 'raichoo/haskell-vim'
   Plugin 'eagletmt/neco-ghc'
   Plugin 'jpalardy/vim-slime'
