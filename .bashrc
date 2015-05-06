@@ -207,6 +207,7 @@ _isroot=false
     alias vrca='vim ~/.vim/autocmd.vim'
     alias b='cd ~/builds'
     alias c='cd ~/c_test'
+    alias cl='cd ~/ClionProjects'
     alias h='cd ~/haskel_test'
     alias dot='cd ~/.dotfiles'
     alias tip='cd ~/tips'
