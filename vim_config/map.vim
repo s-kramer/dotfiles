@@ -189,15 +189,15 @@ nmap cse :set spell! spelllang=en<CR>
 nmap csp :set spell! spelllang=pl<CR>
 
 " search expressions
-noremap <expr> :: ':%S:::g \|norm!``'.repeat("\<Left>", 12)
-noremap <expr> :" ':.,.+S:::g \|norm!``'.repeat("\<Left>",14)
-noremap <expr> :> ':.S:::g \|norm!``'.repeat("\<Left>", 12)
-noremap <expr> :$ ':.,$S:::g \|norm!``'.repeat("\<Left>", 12)
+noremap <expr> :: ':%s:::g \|norm!``'.repeat("\<Left>", 12)
+noremap <expr> :" ':.,.+s:::g \|norm!``'.repeat("\<Left>",14)
+noremap <expr> :> ':.s:::g \|norm!``'.repeat("\<Left>", 12)
+noremap <expr> :$ ':.,$s:::g \|norm!``'.repeat("\<Left>", 12)
 
-noremap <expr> :C: ':%S:::gc'.repeat("\<Left>", 4)
-noremap <expr> :C" ':.,.+S:::gc'.repeat("\<Left>", 6)
-noremap <expr> :C> ':.S:::gc'.repeat("\<Left>", 4)
-noremap <expr> :C$ ':.,$S:::gc'.repeat("\<Left>", 4)
+noremap <expr> :C: ':%s:::gc'.repeat("\<Left>", 4)
+noremap <expr> :C" ':.,.+s:::gc'.repeat("\<Left>", 6)
+noremap <expr> :C> ':.s:::gc'.repeat("\<Left>", 4)
+noremap <expr> :C$ ':.,$s:::gc'.repeat("\<Left>", 4)
 
 " tab switching
 map ≠ :tabn 1<cr>
@@ -219,8 +219,8 @@ autocmd FileType cpp vmap <silent> <C-k> :pyf /home/skramer/scripts/clang-format
 autocmd FileType cpp imap <C-k> <c-o>:pyf /home/skramer/scripts/clang-format.py<cr>
 
 " Trigger makefile
-nmap <silent> <F5> :wa<CR>:Make<CR>
-imap <silent> <F5> <Esc>:wa<CR>:Make<CR>
+autocmd FileType cpp nmap <silent> <F5> :wa<CR>:Make<CR>
+autocmd FileType cpp imap <silent> <F5> <Esc>:wa<CR>:Make<CR>
 
 " Trigger clang-check
 autocmd FileType cpp nmap <silent> <F4> :Dispatch scan-build -v `cat /home/skramer/scripts/scan_build_checker_list` <c-r>=GetScanBuildMakePrgString()<CR><CR>
@@ -232,3 +232,6 @@ autocmd FileType cpp imap  <leader>rr <C-o>:call ClangRename()<CR>i
 
 " Open tag in a new tab
 map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
+
+
+nmap <silent>  <leader>fh  :call ToggleFileType()<CR>

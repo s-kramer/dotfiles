@@ -166,3 +166,14 @@ EOF
     execute "wall"
     execute "pyf /home/skramer/scripts/clang-rename.py"
 endfunct
+
+let g:my_file_type = 0
+function! ToggleFileType()
+   if g:my_file_type == 0
+      set ft=haskell.script
+      let g:my_file_type = 1
+   else
+      filetype detect
+      let g:my_file_type = 0
+   endif
+endfunction
