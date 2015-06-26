@@ -190,6 +190,7 @@ _isroot=false
     alias pdf='cd /home/skramer/PDFs/'
     alias m='make'
     alias mc='make clean'
+    alias mu='cd ~/Music/'
   #}}}
   # COMPILATION {{{
     alias c++='clang++ -Wall -o '
