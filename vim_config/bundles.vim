@@ -41,7 +41,7 @@ if count(g:bundle_groups, 'general')
   " Active
   Plugin 'bling/vim-airline'
   Plugin 'mbbill/undotree'
-  Plugin 'mhinz/vim-startify'
+  " Plugin 'mhinz/vim-startify'
   Plugin 'tpope/vim-abolish'
   Plugin 'tpope/vim-commentary'
   Plugin 'tpope/vim-fugitive'
@@ -74,7 +74,7 @@ if count(g:bundle_groups, 'devel')
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'vim-scripts/UltiSnips'
   Plugin 'Valloric/YouCompleteMe'
-  " Plugin 'majutsushi/tagbar'
+  Plugin 'majutsushi/tagbar'
   " Plugin 'Command-T'
   Plugin 'tommcdo/vim-exchange'
   Plugin 'mileszs/ack.vim'
