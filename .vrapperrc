@@ -1,0 +1,60 @@
+" VRAPPERC
+" --------
+
+"Resources
+"----------
+" https://github.com/justinmk/config/blob/master/.vrapperrc
+" http://evans-stuff.blogspot.com/2007/10/it-seems-that-im-not-only-one-still.html
+" https://github.com/vrapper/vrapper/issues/265#issuecomment-22112349
+
+
+set ignorecase      " Do case insensitive matching
+set incsearch       " Incremental search
+set hlsearch        " highlight last search matches
+set number 		    " Show line numbers
+
+set noexpandtab    
+set tabstop=4
+set shiftwidth=4
+set autoindent
+set smartindent    
+set autochdir 	   
+set cleanindent
+
+nnoremap <F4> :format<cr>
+" Next view
+eclipseaction eclipsecmdNextView org.eclipse.ui.window.nextView
+nnoremap <C-w> :eclipsecmdNextView <cr>
+
+" noremap <M-h> :tabp<CR>
+" nnoremap <M-l> :tabn<CR>
+" nnoremap <C-u> :tabclose<CR>
+
+" amazing 'omnibox' that searches buffers, commands, views, menus, preferences, etc.
+" eclipseaction eclipsecmdsearch org.eclipse.ui.window.quickAccess
+" nnoremap <C-e> :eclipsecmdsearch<cr>
+
+" eclipseaction eclipsecmdsearch org.eclipse.ui.window.quickAccess
+eclipseaction eclipseformat org.eclipse.jdt.core.formatter.CodeFormatter
+nnoremap = :eclipseformat<cr>
+
+" NOT WORKING YET
+" ---------------
+
+" " Open project explorer
+" eclipseaction openprojectexplorer org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=org.eclipse.ui.navigator.ProjectExplorer)
+" nnoremap <F3> :openprojectexplorer<cr>
+" 
+" " Open Outline 
+" eclipseaction openoutline org.eclipse.ui.views.showView(org.eclipse.ui.views.showView.viewId=org.eclipse.ui.views.ContentOutline)
+" nnoremap <F4> :openoutline<cr>
+
+" Toggle comment (no funciona bien)
+"eclipseaction togglecomment org.eclipse.cdt.ui.edit.text.c.toggle.comment
+"nnoremap <leader>cc :togglecomment<cr>
+
+" Focus view
+"eclipseaction focuspart org.eclipse.mylyn.context.ui.commands.focus.view(viewId=org.eclipse.ui.views.showView.viewId%=org.eclipse.ui.navigator.ProjectExplorer)
+" Close part (De momento se hace binding a F6 en eclipse
+"eclipseaction closepart org.eclipse.ui.file.closePart
+"nnoremap <F6> :focusview<cr>:closepart<cr>
