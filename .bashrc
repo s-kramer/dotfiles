@@ -215,6 +215,7 @@ _isroot=false
     alias dot='cd ~/.dotfiles'
     alias tip='cd ~/tips'
     alias p='cd ~/python_test'
+    alias psi='cd ~/PSI/'
   #}}}
   # PRIVILEGED ACCESS {{{
     if ! $_isroot; then

@@ -34,9 +34,7 @@ nnoremap <C-w> :eclipsecmdNextView <cr>
 " eclipseaction eclipsecmdsearch org.eclipse.ui.window.quickAccess
 " nnoremap <C-e> :eclipsecmdsearch<cr>
 
-" eclipseaction eclipsecmdsearch org.eclipse.ui.window.quickAccess
-eclipseaction eclipseformat org.eclipse.jdt.core.formatter.CodeFormatter
-nnoremap = :eclipseformat<cr>
+nnoremap = :format<cr>
 
 " NOT WORKING YET
 " ---------------
