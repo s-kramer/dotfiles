@@ -1,6 +1,5 @@
 " VRAPPERC
 " --------
-
 "Resources
 "----------
 " https://github.com/justinmk/config/blob/master/.vrapperrc
@@ -35,6 +34,11 @@ nnoremap <C-w> :eclipsecmdNextView <cr>
 " nnoremap <C-e> :eclipsecmdsearch<cr>
 
 nnoremap = :format<cr>
+
+eclipseaction eclipsedeletepreviousword org.eclipse.ui.edit.text.deletePreviousWord
+imap <C-w> <Esc>l:eclipsedeletepreviousword<cr>i
+
+nnoremap <C-w> :q<cr>
 
 " NOT WORKING YET
 " ---------------

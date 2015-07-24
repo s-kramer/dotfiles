@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<?p2f version='1.0.0'?>
+<p2f version='1.0.0'>
+  <ius size='9'>
+    <iu id='epp.package.jee' name='Eclipse IDE for Java EE Developers' version='4.5.0.20150621-1200'>
+      <repositories size='1'>
+        <repository location='http://download.eclipse.org/releases/mars'/>
+      </repositories>
+    </iu>
+    <iu id='com.github.matf.relativenumberruler.feature.feature.group' name='Relative Line Number Ruler Feature' version='1.1.0.201505201916'>
+      <repositories size='1'>
+        <repository location='http://matf.github.com/relativenumberruler/updatesite'/>
+      </repositories>
+    </iu>
+    <iu id='net.sourceforge.vrapper.feature.group' name='Vrapper' version='0.56.0'>
+      <repositories size='1'>
+        <repository location='http://vrapper.sourceforge.net/update-site/stable'/>
+      </repositories>
+    </iu>
+    <iu id='net.sourceforge.vrapper.eclipse.cdt.feature.feature.group' name='Vrapper - C/C++ Extensions (Optional, requires CDT)' version='0.56.0'>
+      <repositories size='1'>
+        <repository location='http://vrapper.sourceforge.net/update-site/stable'/>
+      </repositories>
+    </iu>
+    <iu id='net.sourceforge.vrapper.plugin.exchange.feature.group' name='Vrapper - exchange.vim Plugin (Optional)' version='0.56.0'>
+      <repositories size='1'>
+        <repository location='http://vrapper.sourceforge.net/update-site/stable'/>
+      </repositories>
+    </iu>
+    <iu id='net.sourceforge.vrapper.plugin.ipmotion.feature.group' name='Vrapper - ipmotion.vim Plugin (Optional)' version='0.56.0'>
+      <repositories size='1'>
+        <repository location='http://vrapper.sourceforge.net/update-site/stable'/>
+      </repositories>
+    </iu>
+    <iu id='net.sourceforge.vrapper.eclipse.jdt.feature.feature.group' name='Vrapper - Java Extensions (Optional, requires JDT)' version='0.56.0'>
+      <repositories size='1'>
+        <repository location='http://vrapper.sourceforge.net/update-site/stable'/>
+      </repositories>
+    </iu>
+    <iu id='net.sourceforge.vrapper.plugin.splitEditor.feature.group' name='Vrapper - Split Editor Plugin (Optional, requires Eclipse 4+)' version='0.56.0'>
+      <repositories size='1'>
+        <repository location='http://vrapper.sourceforge.net/update-site/stable'/>
+      </repositories>
+    </iu>
+    <iu id='net.sourceforge.vrapper.plugin.surround.feature.group' name='Vrapper - Surround.vim Plugin (Optional)' version='0.56.0'>
+      <repositories size='1'>
+        <repository location='http://vrapper.sourceforge.net/update-site/stable'/>
+      </repositories>
+    </iu>
+  </ius>
+</p2f>
