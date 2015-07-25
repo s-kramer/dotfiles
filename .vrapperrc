@@ -19,6 +19,7 @@ set autoindent
 set smartindent    
 set autochdir 	   
 set cleanindent
+set nonumber
 
 nnoremap <F4> :format<cr>
 " Next view
