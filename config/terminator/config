@@ -1,85 +1,86 @@
 [global_config]
-  title_transmit_bg_color = "#d30102"
   focus = system
+  title_transmit_bg_color = "#d30102"
 [keybindings]
-  close_window = None
-  next_tab = None
-  split_horiz = None
-  prev_tab = None
-  move_tab_right = <Primary><Shift><Alt>l
   close_term = None
+  close_window = None
+  layout_launcher = None
   move_tab_left = <Primary><Shift><Alt>h
+  move_tab_right = <Primary><Shift><Alt>l
+  next_tab = <Alt><Shift>l
+  prev_tab = <Alt><Shift>h
+  split_horiz = None
   split_vert = None
   toggle_scrollbar = None
-[profiles]
-  [[weird_default]]
-    scrollbar_position = hidden
-    palette = "#4c4c4c:#bb0000:#5fde8f:#f3f167:#276bd8:#bb00bb:#00dadf:#bbbbbb:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
-    background_image = None
-    cursor_color = "#bbbbbb"
-    foreground_color = "#bbbbbb"
-    show_titlebar = False
-    scrollback_infinite = True
+[layouts]
   [[default]]
-    scrollbar_position = hidden
-    palette = "#000000:#cd0000:#00cd00:#cdcd00:#7dda6c:#cd00cd:#00cdcd:#e5e5e5:#4c4c4c:#ff0000:#00ff00:#ffff00:#4682b4:#ff00ff:#00ffff:#ffffff"
-    custom_command = tmux -2
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
     background_image = None
     cursor_color = "#f34b00"
+    custom_command = tmux -2
     foreground_color = "#ffffff"
-    use_custom_command = True
+    palette = "#000000:#cd0000:#00cd00:#cdcd00:#7dda6c:#cd00cd:#00cdcd:#e5e5e5:#4c4c4c:#ff0000:#00ff00:#ffff00:#4682b4:#ff00ff:#00ffff:#ffffff"
     scroll_on_output = False
-    show_titlebar = False
     scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+    use_custom_command = True
+  [[Brogrammer]]
+    background_color = "#222324"
+    background_image = None
+    cursor_color = "#bbbbbb"
+    foreground_color = "#bababa"
+    palette = "#000000:#e8341c:#68c256:#f2d42c:#1c98e8:#8e69c9:#1c98e8:#bababa:#000000:#e05a4f:#77b869:#efd64b:#387cd3:#957bbe:#3d97e2:#bababa"
+    show_titlebar = False
   [[Cobalt2]]
-    palette = "#000000:#ff0000:#38de21:#ffe50a:#1460d2:#ff005d:#00bbbb:#bbbbbb:#555555:#f40e17:#3bd01d:#edc809:#5555ff:#ff55ff:#6ae3fa:#ffffff"
     background_color = "#132738"
     background_image = None
     cursor_color = "#f0cc09"
     foreground_color = "#ffffff"
-  [[Brogrammer]]
-    palette = "#000000:#e8341c:#68c256:#f2d42c:#1c98e8:#8e69c9:#1c98e8:#bababa:#000000:#e05a4f:#77b869:#efd64b:#387cd3:#957bbe:#3d97e2:#bababa"
-    background_image = None
-    cursor_color = "#bbbbbb"
-    foreground_color = "#bababa"
-    show_titlebar = False
-    background_color = "#222324"
+    palette = "#000000:#ff0000:#38de21:#ffe50a:#1460d2:#ff005d:#00bbbb:#bbbbbb:#555555:#f40e17:#3bd01d:#edc809:#5555ff:#ff55ff:#6ae3fa:#ffffff"
   [[Darkside]]
     background_image = None
+  [[Highway]]
+    background_image = None
   [[Obsidian]]
-    palette = "#000000:#a60001:#00bb00:#fecd22:#3a9bdb:#bb00bb:#00bbbb:#bbbbbb:#555555:#ff0003:#93c863:#fef874:#a1d7ff:#ff55ff:#55ffff:#ffffff"
     background_color = "#283033"
     background_image = None
     cursor_color = "#c0cad0"
     foreground_color = "#cdcdcd"
-  [[default_old]]
-    scrollbar_position = hidden
-    palette = "#202020:#ff6565:#93d44f:#eab93d:#204a87:#ce5c00:#89b6e2:#cccccc:#606060:#ff8d8d:#c8e7a8:#ffc123:#3465a4:#f57900:#46a4ff:#ffffff"
-    background_image = None
-    cursor_color = "#dcdcdc"
-    foreground_color = "#dcdcdc"
-    show_titlebar = False
-    background_color = "#3f3f3f"
-    scrollback_infinite = True
+    palette = "#000000:#a60001:#00bb00:#fecd22:#3a9bdb:#bb00bb:#00bbbb:#bbbbbb:#555555:#ff0003:#93c863:#fef874:#a1d7ff:#ff55ff:#55ffff:#ffffff"
   [[Solarized]]
-    scrollbar_position = hidden
-    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
+    background_color = "#222225"
     background_image = None
     cursor_color = "#e0d9b9"
     foreground_color = "#ededed"
+    palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
     scroll_on_output = False
-    show_titlebar = False
-    background_color = "#222225"
     scrollback_infinite = True
-  [[Highway]]
+    scrollbar_position = hidden
+    show_titlebar = False
+  [[default_old]]
+    background_color = "#3f3f3f"
     background_image = None
-[layouts]
-  [[default]]
-    [[[child1]]]
-      type = Terminal
-      parent = window0
-      profile = default
-    [[[window0]]]
-      type = Window
-      parent = ""
-[plugins]
+    cursor_color = "#dcdcdc"
+    foreground_color = "#dcdcdc"
+    palette = "#202020:#ff6565:#93d44f:#eab93d:#204a87:#ce5c00:#89b6e2:#cccccc:#606060:#ff8d8d:#c8e7a8:#ffc123:#3465a4:#f57900:#46a4ff:#ffffff"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
+  [[weird_default]]
+    background_image = None
+    cursor_color = "#bbbbbb"
+    foreground_color = "#bbbbbb"
+    palette = "#4c4c4c:#bb0000:#5fde8f:#f3f167:#276bd8:#bb00bb:#00dadf:#bbbbbb:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    scrollback_infinite = True
+    scrollbar_position = hidden
+    show_titlebar = False
