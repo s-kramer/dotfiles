@@ -1,2 +1,3 @@
 set visualbell
 set ignorecase smartcase
+set surround
