@@ -687,6 +687,9 @@ _isroot=false
 
   #}}}
   # ENTER AND LIST DIRECTORY{{{
+    function mkdircd() { mkdir "$@" && cd "$@"; }
+  #}}}
+  # ENTER AND LIST DIRECTORY{{{
     function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -h --color; }; }
     function ccd() { builtin cd -- "$@"; }
   #}}}
@@ -760,8 +763,6 @@ _isroot=false
     # start_agent;
 # fi
 #}}}
-  # BASH FOR LOOP  #{{{
-  # }}}
 
 bind -r '\C-s'
 stty -ixon
