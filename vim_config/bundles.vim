@@ -39,7 +39,7 @@ if count(g:bundle_groups, 'general')
   " Plugin 'dkprice/vim-easygrep'
   " Plugin 'hwrod/interactive-replace'
   " Active
-  Plugin 'bling/vim-airline'
+  " Plugin 'bling/vim-airline'
   Plugin 'mbbill/undotree'
   " Plugin 'mhinz/vim-startify'
   Plugin 'tpope/vim-abolish'
@@ -73,7 +73,7 @@ if count(g:bundle_groups, 'devel')
   Plugin 'kien/rainbow_parentheses.vim'
   Plugin 'scrooloose/nerdcommenter'
   Plugin 'vim-scripts/UltiSnips'
-  Plugin 'Valloric/YouCompleteMe'
+  " Plugin 'Valloric/YouCompleteMe'
   Plugin 'majutsushi/tagbar'
   " Plugin 'Command-T'
   Plugin 'tommcdo/vim-exchange'
