@@ -216,6 +216,14 @@ _isroot=false
     alias tip='cd ~/tips'
     alias p='cd ~/python_test'
     alias psi='cd ~/PSI/'
+    alias dev="cd /PSI/BASE/dev"
+    alias ems="cd /PSI/BASE/dev/ems"
+    alias qbin="cd /PSI/BASE/dev/ems/proz/bin/Linux64Debug"
+    alias qetc="cd /PSI/BASE/dev/ems/proz/etc/"
+    alias qtfe="cd /home/skramer/PSI/ebase/qtfe/qtfe/trunk"
+    alias qsrc="cd /home/skramer/PSI/ebase/qtfe/qtfe/trunk/src"
+    alias qbuild="cd /home/skramer/PSI/ebase/qtfe/qtfe/trunk/qtfe_build"
+    alias qinstall="cd /home/skramer/PSI/ebase/qtfe/qtfe/trunk/src/install"
   #}}}
   # PRIVILEGED ACCESS {{{
     if ! $_isroot; then

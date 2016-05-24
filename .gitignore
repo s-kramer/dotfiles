@@ -10,3 +10,5 @@ vim_config/settings.vim
 vim_config/vimrc
 vim_config/.ycm_extra_conf.py
 vim_config/.ycm_extra_conf.pyc
+*.pycache
+*.pyc
