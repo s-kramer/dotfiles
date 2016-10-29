@@ -692,3 +692,13 @@ set print vtbl on
 set print demangle on
 set demangle-style gnu-v3
 set print sevenbit-strings off
+
+python
+import sys
+
+sys.path.insert(0, '/home/skramer/.dotfiles/')
+from qt4 import register_qt4_printers
+register_qt4_printers (None)
+
+end
+set print pretty 1

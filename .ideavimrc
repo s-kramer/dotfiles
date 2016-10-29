@@ -10,6 +10,7 @@ map <leader>b :action GotoDeclaration<CR>
 map <leader>c :action $Copy<CR>
 map <leader>d :action EditorDuplicate<CR>
 map <leader>e :action RecentFiles<CR>
+map <leader><S-E> :action RecentlyEditedFiles<CR>
 map <leader>f :action Find<CR>
 map <leader>g :action GotoLine<CR>
 map <leader>h :action TypeHierarchy<CR>
