@@ -187,11 +187,14 @@ _isroot=false
     alias trc='vim ~/.dotfiles/tmux_config/tmux.conf'
     alias d='cd ~/data/'
     alias scr='cd ~/scripts'
-    alias sd='cd /sd/'
+    alias sd='cd /home/skramer/sd/'
     alias pdf='cd /home/skramer/PDFs/'
     alias m='make'
     alias mc='make clean'
     alias mu='cd ~/Music/'
+    alias yt='cd ~/Music/Music/YT'
+    alias ij='/home/skramer/Downloads/idea-IC-162.1121.32/bin/idea.sh &'
+    alias wild='/home/skramer/Downloads/wildfly-9.0.2.Final/bin/standalone.sh -c standalone-full.xml --debug &'
   #}}}
   # COMPILATION {{{
     alias c++='clang++ -Wall -o '
@@ -208,14 +211,17 @@ _isroot=false
     alias vrcf='vim ~/.vim/functions.vim'
     alias vrca='vim ~/.vim/autocmd.vim'
     alias b='cd ~/builds'
-    alias c='cd ~/c_test'
-    alias cl='cd ~/ClionProjects'
-    alias h='cd ~/haskel_test'
-    alias j='cd ~/java_test/'
+    alias c='cd ~/Projects/Cpp/c_test'
+    alias cl='cd ~/Projects/Cpp/ClionProjects'
+    alias h='cd ~/Projects/Haskell/haskel_test'
+    alias j='cd ~/Projects/Java/java_test/'
+    alias s='cd ~/Projects/Scala/scala_test/'
     alias dot='cd ~/.dotfiles'
     alias tip='cd ~/tips'
-    alias p='cd ~/python_test'
+    alias p='cd ~/Projects/Python/python_test'
+    alias k='cd ~/Projects/Kotlin/kotlin_test'
     alias psi='cd ~/PSI/'
+	#alias vim='vimx'
   #}}}
   # PRIVILEGED ACCESS {{{
     if ! $_isroot; then
