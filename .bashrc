@@ -193,7 +193,7 @@ _isroot=false
     alias mc='make clean'
     alias mu='cd ~/Music/'
     alias yt='cd ~/Music/Music/YT'
-    alias ij='/home/skramer/Downloads/idea-IC-162.1121.32/bin/idea.sh &'
+    alias ij='/opt/idea-IC/bin/idea.sh &'
     alias wild='/home/skramer/Downloads/wildfly-9.0.2.Final/bin/standalone.sh -c standalone-full.xml --debug &'
   #}}}
   # COMPILATION {{{
