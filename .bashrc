@@ -185,7 +185,7 @@ _isroot=false
     alias ping='ping -c 5'
     alias hbrc='vim ~/.bashrc'
     alias trc='vim ~/.dotfiles/tmux_config/tmux.conf'
-    alias d='cd ~/data/'
+    alias d='cd ~/Projects/Docker'
     alias scr='cd ~/Projects/Scala'
     alias sd='cd /home/skramer/sd/'
     alias pdf='cd /home/skramer/PDFs/'
@@ -780,3 +780,4 @@ _isroot=false
 
 bind -r '\C-s'
 stty -ixon
+source <(kubectl completion bash)
