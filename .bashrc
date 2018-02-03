@@ -777,7 +777,7 @@ _isroot=false
     # start_agent;
 # fi
 #}}}
-
+# }}}
 bind -r '\C-s'
 stty -ixon
 source <(kubectl completion bash)
