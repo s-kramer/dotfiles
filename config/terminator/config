@@ -26,7 +26,7 @@
   [[default]]
     background_image = None
     cursor_color = "#f34b00"
-    custom_command = tmux -2
+    custom_command = ~/bin/tmux -2 -f ~/.tmux.conf
     foreground_color = "#ffffff"
     palette = "#000000:#cd0000:#00cd00:#cdcd00:#7dda6c:#cd00cd:#00cdcd:#e5e5e5:#4c4c4c:#ff0000:#00ff00:#ffff00:#4682b4:#ff00ff:#00ffff:#ffffff"
     scroll_on_output = False

@@ -30,3 +30,5 @@ map <leader>x :action $Cut<CR>
 map <leader>y :action EditorDeleteLine<CR>
 map <leader>[ :action EditorCodeBlockStart<CR>
 map <leader>] :action EditorCodeBlockEnd<CR>
+map <leader>= :action ReformatCode<CR>
+

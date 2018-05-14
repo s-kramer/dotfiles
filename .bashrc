@@ -88,11 +88,8 @@ _isroot=false
   #}}}
 ## EXPORTS {{{
   export PATH=/usr/local/bin:$PATH
-  export PATH=/home/skramer/scripts:$PATH
-  export PATH=/home/skramer/bin:$PATH
-  export PATH=/opt/llvm-3.6/bin:$PATH
-  export PATH=/home/skramer/.cabal/bin:$PATH
-  export MAVEN_HOME=/opt/maven/
+  export PATH=/home/egnyte/scripts:$PATH
+  export PATH=/home/egnyte/bin:$PATH
   #Ruby support
   if which ruby &>/dev/null; then
     GEM_DIR=$(ruby -rubygems -e 'puts Gem.user_dir')/bin
@@ -221,15 +218,28 @@ _isroot=false
     alias tip='cd ~/tips'
     alias p='cd ~/Projects/Python/python_test'
     alias k='cd ~/Projects/Kotlin/kotlin_test'
-    alias psi='cd ~/PSI/'
-    alias dev="cd /PSI/BASE/dev"
-    alias ems="cd /PSI/BASE/dev/ems"
-    alias qbin="cd /PSI/BASE/dev/ems/proz/bin/Linux64Debug"
-    alias qetc="cd /PSI/BASE/dev/ems/proz/etc/"
-    alias qtfe="cd /home/skramer/PSI/ebase/qtfe/qtfe/trunk"
-    alias qsrc="cd /home/skramer/PSI/ebase/qtfe/qtfe/trunk/src"
-    alias qbuild="cd /home/skramer/PSI/ebase/qtfe/qtfe/trunk/qtfe_build"
-    alias qinstall="cd /home/skramer/PSI/ebase/qtfe/qtfe/trunk/src/install"
+  #}}}
+  # AVALON ACCESS {{{
+    alias memcacheFlush="echo 'flush_all' | nc localhost 11211"
+    alias avalonInstallUi="source ~/bin/jrebel-env.sh && cd ~/avalon/modules && mvn -pl ui -amd -DskipTests -Puse-released-common-ui -Peg-snapshots -Pdeploy-to-server"
+    alias avalonCleanInstallTomcatRestartServer="source ~/bin/jrebel-env.sh && cd ~/avalon/modules && mvn -pl server -amd -DskipTests -Puse-released-common-ui -Peg-snapshots -Pdeploy-to-server && avalonRestartTomcat && cd - && sleep 15 && avalonCheckAvailability && echo 'Avalon recompilation and Tomcat restart done'"
+    alias avalonCleanInstallTomcatRestart="source ~/bin/jrebel-env.sh && cd ~/avalon/modules && mvn clean install -DskipTests -Puse-released-common-ui -Peg-snapshots -Pdeploy-to-server && avalonRestartTomcat && cd - && sleep 15 && avalonCheckAvailability && echo 'Avalon recompilation and Tomcat restart done'"
+    alias avalonInstallTomcatRestart="source ~/bin/jrebel-env.sh && cd ~/avalon/modules && mvn install -DskipTests -Peg-snapshots -Puse-released-common-ui -Pdeploy-to-server && avalonRestartTomcat && cd - && sleep 15 && avalonCheckAvailability && echo 'Avalon recompilation and Tomcat restart done'"
+    alias avalonRebuildSchemas="cd ~/avalon/modules && mvn -P rebuild-schemas -DskipTests && cd -"
+    alias avalonRunAllFuncTests="cd ~/avalon/modules/server && mvn test -P'!unit-test' -Dmaven.test.failure.ignore=true && cd -"
+    alias avalonRunAllUnitTests="cd ~/avalon/modules/server && mvn test -P'!func-test' -Dmaven.test.failure.ignore=true && cd -"
+    alias avalonRunAllTests="cd ~/avalon/modules/server && mvn test -Dmaven.test.failure.ignore=true && cd -"
+    alias avalonCheckAvailability="curl --connect-timeout 600 --max-time 600 -kI https://subdomain0.ezegnyte.com/ > /dev/null"
+    alias avalonCheckAvailabilityVerbose="curl --connect-timeout 600 --max-time 600 -kIv https://subdomain0.ezegnyte.com/ > /dev/null"
+    alias avalonRestartEzServer="~/avalon/scripts/ez_server.py restart && avalonCheckAvailability"
+    alias avalonCreateSshTunnelToQa="ssh qa-us -L 9998:app01:8000 -L 9999:app02:8000"
+    alias avalonRestartTomcat="source ~/bin/jrebel-env.sh && cd ~/apache-tomcat-7.0.50/bin && sh catalina.sh stop -force && sh catalina.sh jpda start && sleep 15 && avalonCheckAvailability"
+
+    alias am='cd ~/avalon/module'
+    alias as='cd ~/avalon/script'
+    alias a='cd ~/avalon/'
+    alias at='cd ~/apache-tomcat-7.0.50/'
+    alias atl='cd ~/apache-tomcat-7.0.50/logs'
   #}}}
   # PRIVILEGED ACCESS {{{
     if ! $_isroot; then
@@ -241,34 +251,6 @@ _isroot=false
       alias halt='sudo halt'
     fi
   #}}}
-  # PACMAN ALIASES {{{
-    # we're on ARCH
-    if $_isarch; then
-      # we're not root
-      # if ! $_isroot; then
-        # alias pacman='pacman'
-      # fi
-      alias pupg='sudo pacman -Syu'            # Synchronize with repositories and then upgrade packages that are out of date on the local system.
-      alias pupd='sudo pacman -Sy'             # Refresh of all package lists after updating /etc/pacman.d/mirrorlist
-      alias pin='sudo pacman -S'               # Install specific package(s) from the repositories
-      alias pinu='sudo pacman -U'              # Install specific local package(s)
-      alias pinf='pacman -Si'             # Display information about a given package in the repositories
-      alias pre='sudo pacman -R'               # Remove the specified package(s), retaining its configuration(s) and required dependencies
-      alias pun='sudo pacman -Rsn'            # Remove the specified package(s), its configuration(s) and unneeded dependencies
-      alias pse='pacman -Ss'              # Search for package(s) in the repositories
-
-      alias pacupa='pacman -Sy && sudo abs' # Update and refresh the local package and ABS databases against repositories
-      alias pacind='pacman -S --asdeps'     # Install given package(s) as dependencies of another package
-      alias pacclean="pacman -Sc"           # Delete all not currently installed package files
-      alias pacmake="makepkg -fcsi"         # Make package from PKGBUILD file in current directory
-      alias pacro=removeOrphanedPackages
-    fi
-  #}}}
-  # MULTIMEDIA {{{
-    if which get_flash_videos &>/dev/null; then
-      alias gfv='get_flash_videos -r 720p --subtitles'
-    fi
-  #}}}
   # LS {{{
     alias ls='ls -F --color=auto'
     alias l='ls'
@@ -277,507 +259,15 @@ _isroot=false
     alias lla='ls -al'
     alias la='ls -A'
     alias lm='la | less'
-  #}}}
-  # MAN {{{
-  # alias vman=vman()
-  # }}}
-  # XILINX SUITE START {{{
-  alias xilstart='cd /sd/Xilinx/14.7/ISE_DS/ 1>/dev/null && source settings64.sh'
-  alias tftpstart='sudo systemctl start tftpd.socket'
-  # }}}
-#}}}
-## FUNCTIONS {{{
-  # BETTER GIT COMMANDS {{{
-    bit() {
-      # By helmuthdu
-      usage(){
-        echo "Usage: $0 [options]"
-        echo "  --init                                              # Autoconfigure git options"
-        echo "  a, [add] <files> [--all]                            # Add git files"
-        echo "  c, [commit] <text> [--undo]                         # Add git files"
-        echo "  C, [cherry-pick] <number> <url> [branch]            # Cherry-pick commit"
-        echo "  b, [branch] feature|hotfix|<name>                   # Add/Change Branch"
-        echo "  d, [delete] <branch>                                # Delete Branch"
-        echo "  l, [log]                                            # Display Log"
-        echo "  m, [merge] feature|hotfix|<name> <commit>|<version> # Merge branches"
-        echo "  p, [push] <branch>                                  # Push files"
-        echo "  P, [pull] <branch> [--foce]                         # Pull files"
-        echo "  r, [release]                                        # Merge unstable branch on master"
-        return 1
-      }
-      case $1 in
-        --init)
-          local NAME=`git config --global user.name`
-          local EMAIL=`git config --global user.email`
-          local USER=`git config --global github.user`
-          local EDITOR=`git config --global core.editor`
-
-          [[ -z $NAME ]] && read -p "Nome: " NAME
-          [[ -z $EMAIL ]] && read -p "Email: " EMAIL
-          [[ -z $USER ]] && read -p "Username: " USER
-          [[ -z $EDITOR ]] && read -p "Editor: " EDITOR
-
-          git config --global user.name $NAME
-          git config --global user.email $EMAIL
-          git config --global github.user $USER
-          git config --global color.ui true
-          git config --global color.status auto
-          git config --global color.branch auto
-          git config --global color.diff auto
-          git config --global diff.color true
-          git config --global core.filemode true
-          git config --global push.default matching
-          git config --global core.editor $EDITOR
-          git config --global format.signoff true
-          git config --global alias.reset 'reset --soft HEAD^'
-          git config --global alias.graph 'log --graph --oneline --decorate'
-          if which meld &>/dev/null; then
-            git config --global diff.guitool meld
-            git config --global merge.tool meld
-          elif which kdiff3 &>/dev/null; then
-            git config --global diff.guitool kdiff3
-            git config --global merge.tool kdiff3
-          fi
-          git config --global --list
-          ;;
-        a | add)
-          if [[ $2 == --all ]]; then
-            git add -A
-          else
-            git add $2
-          fi
-          ;;
-        b | branch )
-          check_branch=`git branch | grep $2`
-          case $2 in
-            feature)
-              check_unstable_branch=`git branch | grep unstable`
-              if [[ -z $check_unstable_branch ]]; then
-                echo "creating unstable branch..."
-                git branch unstable
-                git push origin unstable
-              fi
-              git checkout -b feature --track origin/unstable
-              ;;
-            hotfix)
-              git checkout -b hotfix master
-              ;;
-            master)
-              git checkout master
-              ;;
-            *)
-              check_branch=`git branch | grep $2`
-              if [[ -z $check_unstable_branch ]]; then
-                echo "creating $2 branch..."
-                git branch $2
-                git push origin $2
-              fi
-              git checkout $2
-              ;;
-          esac
-          ;;
-        c | commit )
-          if [[ $2 == --undo ]]; then
-            git reset --soft HEAD^
-          else
-            git commit -am "$2"
-          fi
-          ;;
-        C | cherry-pick )
-          git checkout -b patch master
-          git pull $2 $3
-          git checkout master
-          git cherry-pick $1
-          git log
-          git branch -D patch
-          ;;
-        d | delete)
-          check_branch=`git branch | grep $2`
-          if [[ -z $check_branch ]]; then
-            echo "No branch founded."
-          else
-            git branch -D $2
-            git push origin --delete $2
-          fi
-          ;;
-        l | log )
-          git log --graph --oneline --decorate
-          ;;
-        m | merge )
-          check_branch=`git branch | grep $2`
-          case $2 in
-            --fix)
-              git mergetool
-              ;;
-            feature)
-              if [[ -n $check_branch ]]; then
-                git checkout unstable
-                git difftool -g -d unstable..feature
-                git merge --no-ff feature
-                git branch -d feature
-                git commit -am "${3}"
-              else
-                echo "No unstable branch founded."
-              fi
-              ;;
-            hotfix)
-              if [[ -n $check_branch ]]; then
-                # get upstream branch
-                git checkout -b unstable origin
-                git merge --no-ff hotfix
-                git commit -am "hotfix: v${3}"
-                # get master branch
-                git checkout -b master origin
-                git merge hotfix
-                git commit -am "Hotfix: v${3}"
-                git branch -d hotfix
-                git tag -a $3 -m "Release: v${3}"
-                git push --tags
-              else
-                echo "No hotfix branch founded."
-              fi
-              ;;
-            *)
-              if [[ -n $check_branch ]]; then
-                git checkout -b master origin
-                git difftool -g -d master..$2
-                git merge --no-ff $2
-                git branch -d $2
-                git commit -am "${3}"
-              else
-                echo "No unstable branch founded."
-              fi
-              ;;
-          esac
-          ;;
-        p | push )
-          git push origin $2
-          ;;
-        P | pull )
-          if [[ $2 == --force ]]; then
-            git fetch --all
-            git reset --hard origin/master
-          else
-            git pull origin $2
-          fi
-          ;;
-        r | release )
-          git checkout origin/master
-          git merge --no-ff origin/unstable
-          git branch -d unstable
-          git tag -a $2 -m "Release: v${2}"
-          git push --tags
-          ;;
-        *)
-          usage
-      esac
-    }
-  #}}}
-  # TOP 10 COMMANDS {{{
-    # copyright 2007 - 2010 Christopher Bratusek
-    top10() { history | awk '{a[$2]++ } END{for(i in a){print a[i] " " i}}' | sort -rn | head; }
-  #}}}
-  # UP {{{
-    # Goes up many dirs as the number passed as argument, if none goes up by 1 by default
-    up() {
-      local d=""
-      limit=$1
-      for ((i=1 ; i <= limit ; i++)); do
-        d=$d/..
-      done
-      d=$(echo $d | sed 's/^\///')
-      if [[ -z "$d" ]]; then
-        d=..
-      fi
-      cd $d
-    }
-  #}}}
-  # ARCHIVE EXTRACTOR {{{
-    extract() {
-      clrstart="\033[1;34m"  #color codes
-      clrend="\033[0m"
-
-      if [[ "$#" -lt 1 ]]; then
-        echo -e "${clrstart}Pass a filename. Optionally a destination folder. You can also append a v for verbose output.${clrend}"
-        exit 1 #not enough args
-      fi
-
-      if [[ ! -e "$1" ]]; then
-        echo -e "${clrstart}File does not exist!${clrend}"
-        exit 2 #file not found
-      fi
-
-      if [[ -z "$2" ]]; then
-        DESTDIR="." #set destdir to current dir
-      elif [[ ! -d "$2" ]]; then
-        echo -e -n "${clrstart}Destination folder doesn't exist or isnt a directory. Create? (y/n): ${clrend}"
-        read response
-        #echo -e "\n"
-        if [[ $response == y || $response == Y ]]; then
-          mkdir -p "$2"
-          if [ $? -eq 0 ]; then
-            DESTDIR="$2"
-          else
-            exit 6 #Write perms error
-          fi
-        else
-          echo -e "${clrstart}Closing.${clrend}"; exit 3 # n/wrong response
-        fi
-      else
-        DESTDIR="$2"
-      fi
-
-      if [[ ! -z "$3" ]]; then
-        if [[ "$3" != "v" ]]; then
-          echo -e "${clrstart}Wrong argument $3 !${clrend}"
-          exit 4 #wrong arg 3
-        fi
-      fi
-
-      filename=`basename "$1"`
-
-      #echo "${filename##*.}" debug
-
-      case "${filename##*.}" in
-        tar)
-          echo -e "${clrstart}Extracting $1 to $DESTDIR: (uncompressed tar)${clrend}"
-          tar x${3}f "$1" -C "$DESTDIR"
-          ;;
-        gz)
-          echo -e "${clrstart}Extracting $1 to $DESTDIR: (gip compressed tar)${clrend}"
-          tar x${3}fz "$1" -C "$DESTDIR"
-          ;;
-        tgz)
-          echo -e "${clrstart}Extracting $1 to $DESTDIR: (gip compressed tar)${clrend}"
-          tar x${3}fz "$1" -C "$DESTDIR"
-          ;;
-        xz)
-          echo -e "${clrstart}Extracting  $1 to $DESTDIR: (gip compressed tar)${clrend}"
-          tar x${3}f -J "$1" -C "$DESTDIR"
-          ;;
-        bz2)
-          echo -e "${clrstart}Extracting $1 to $DESTDIR: (bzip compressed tar)${clrend}"
-          tar x${3}fj "$1" -C "$DESTDIR"
-          ;;
-        zip)
-          echo -e "${clrstart}Extracting $1 to $DESTDIR: (zipp compressed file)${clrend}"
-          unzip "$1" -d "$DESTDIR"
-          ;;
-        rar)
-          echo -e "${clrstart}Extracting $1 to $DESTDIR: (rar compressed file)${clrend}"
-          unrar x "$1" "$DESTDIR"
-          ;;
-        7z)
-          echo -e  "${clrstart}Extracting $1 to $DESTDIR: (7zip compressed file)${clrend}"
-          7za e "$1" -o"$DESTDIR"
-          ;;
-        *)
-          echo -e "${clrstart}Unknown archieve format!"
-          exit 5
-          ;;
-      esac
-    }
-  #}}}
-  # ARCHIVE COMPRESS {{{
-    compress() {
-      if [[ -n "$1" ]]; then
-        FILE=$1
-        case $FILE in
-        *.tar ) shift && tar cf $FILE $* ;;
-    *.tar.bz2 ) shift && tar cjf $FILE $* ;;
-     *.tar.gz ) shift && tar czf $FILE $* ;;
-        *.tgz ) shift && tar czf $FILE $* ;;
-        *.zip ) shift && zip $FILE $* ;;
-        *.rar ) shift && rar $FILE $* ;;
-        esac
-      else
-        echo "usage: compress <foo.tar.gz> ./foo ./bar"
-      fi
-    }
-  #}}}
-  # CONVERT TO ISO {{{
-    to_iso () {
-      if [[ $# == 0 || $1 == "--help" || $1 == "-h" ]]; then
-        echo -e "Converts raw, bin, cue, ccd, img, mdf, nrg cd/dvd image files to ISO image file.\nUsage: to_iso file1 file2..."
-      fi
-      for i in $*; do
-        if [[ ! -f "$i" ]]; then
-          echo "'$i' is not a valid file; jumping it"
-        else
-          echo -n "converting $i..."
-          OUT=`echo $i | cut -d '.' -f 1`
-          case $i in
-                *.raw ) bchunk -v $i $OUT.iso;; #raw=bin #*.cue #*.bin
-          *.bin|*.cue ) bin2iso $i $OUT.iso;;
-          *.ccd|*.img ) ccd2iso $i $OUT.iso;; #Clone CD images
-                *.mdf ) mdf2iso $i $OUT.iso;; #Alcohol images
-                *.nrg ) nrg2iso $i $OUT.iso;; #nero images
-                    * ) echo "to_iso don't know de extension of '$i'";;
-          esac
-          if [[ $? != 0 ]]; then
-            echo -e "${R}ERROR!${W}"
-          else
-            echo -e "${G}done!${W}"
-          fi
-        fi
-      done
-    }
-  #}}}
-  # REMIND ME, ITS IMPORTANT! {{{
-    # usage: remindme <time> <text>
-    # e.g.: remindme 10m "omg, the pizza"
-    remindme() { sleep $1 && zenity --info --text "$2" & }
-  #}}}
-  # SIMPLE CALCULATOR #{{{
-    # usage: calc <equation>
-    calc() {
-      if which bc &>/dev/null; then
-        echo "scale=3; $*" | bc -l
-      else
-        awk "BEGIN { print $* }"
-      fi
-    }
-  #}}}
-  # FILE & STRINGS RELATED FUNCTIONS {{{
-    ## FIND A FILE WITH A PATTERN IN NAME {{{
-      ff() { find . -type f -iname '*'$*'*' -ls ; }
-    #}}}
-    ## FIND A FILE WITH PATTERN $1 IN NAME AND EXECUTE $2 ON IT {{{
-      fe() { find . -type f -iname '*'$1'*' -exec "${2:-file}" {} \;  ; }
-    #}}}
-    ## MOVE FILENAMES TO LOWERCASE {{{
-      lowercase() {
-        for file ; do
-          filename=${file##*/}
-          case "$filename" in
-          */* ) dirname==${file%/*} ;;
-            * ) dirname=.;;
-          esac
-          nf=$(echo $filename | tr A-Z a-z)
-          newname="${dirname}/${nf}"
-          if [[ "$nf" != "$filename" ]]; then
-            mv "$file" "$newname"
-            echo "lowercase: $file --> $newname"
-          else
-            echo "lowercase: $file not changed."
-          fi
-        done
-      }
-  #}}}
-    ## SWAP 2 FILENAMES AROUND, IF THEY EXIST {{{
-      #(from Uzi's bashrc).
-      swap() {
-        local TMPFILE=tmp.$$
-
-        [[ $# -ne 2 ]] && echo "swap: 2 arguments needed" && return 1
-        [[ ! -e $1 ]] && echo "swap: $1 does not exist" && return 1
-        [[ ! -e $2 ]] && echo "swap: $2 does not exist" && return 1
-
-        mv "$1" $TMPFILE
-        mv "$2" "$1"
-        mv $TMPFILE "$2"
-      }
-    #}}}
-    ## FINDS DIRECTORY SIZES AND LISTS THEM FOR THE CURRENT DIRECTORY {{{
-      dirsize () {
-        du -shx * .[a-zA-Z0-9_]* 2> /dev/null | egrep '^ *[0-9.]*[MG]' | sort -n > /tmp/list
-        egrep '^ *[0-9.]*M' /tmp/list
-        egrep '^ *[0-9.]*G' /tmp/list
-        rm -rf /tmp/list
-      }
-    #}}}
-    ## FIND AND REMOVED EMPTY DIRECTORIES {{{
-      fared() {
-        read -p "Delete all empty folders recursively [y/N]: " OPT
-        [[ $OPT == y ]] && find . -type d -empty -exec rm -fr {} \; &> /dev/null
-      }
-    #}}}
-    ## FIND AND REMOVED ALL DOTFILES {{{
-      farad () {
-        read -p "Delete all dotfiles recursively [y/N]: " OPT
-        [[ $OPT == y ]] && find . -name '.*' -type f -exec rm -rf {} \;
-      }
-    #}}}
 
   #}}}
-  # ENTER AND LIST DIRECTORY{{{
-    function mkdircd() { mkdir "$@" && cd "$@"; }
-  #}}}
-  # ENTER AND LIST DIRECTORY{{{
+ # ENTER AND LIST DIRECTORY{{{
     function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -h --color; }; }
-    function ccd() { builtin cd -- "$@"; }
   #}}}
-  # SYSTEMD SUPPORT {{{
-    if which systemctl &>/dev/null; then
-      start() {
-        sudo systemctl start $1.service
-      }
-      restart() {
-        sudo systemctl restart $1.service
-      }
-      stop() {
-        sudo systemctl stop $1.service
-      }
-      enable() {
-        sudo systemctl enable $1.service
-      }
-      status() {
-        sudo systemctl status $1.service
-      }
-      disable() {
-        sudo systemctl disable $1.service
-      }
-    fi
-  #}}}
-  # OPEN MAN PAGES IN VIM {{{
-  vman() {
-      /usr/bin/man $* | \
-          col -b | \
-          vim -R -c 'set ft=man nomod nolist' -
-  }
-  # }}}
-  # REMOVE ORPHANED PACKAGES {{{
-  removeOrphanedPackages() {
-      if [[ ! -n $(pacman -Qdt) ]]; then
-          echo "No orphans to remove."
-      else
-          sudo pacman -Rns $(pacman -Qdtq)
-      fi
-  }
-  # }}}
-  # REMOVE ORPHANED PACKAGES {{{
-  removeOrphanedPackages() {
-      if [[ ! -n $(pacman -Qdt) ]]; then
-          echo "No orphans to remove."
-      else
-          sudo pacman -Rns $(pacman -Qdtq)
-      fi
-  }
-  # }}}
-  # START SSH AGENT  #{{{
-# SSH_ENV=$HOME/.ssh/environment
-
-# # start the ssh-agent
-# function start_agent {
-    # echo "Initializing new SSH agent..."
-    # # spawn ssh-agent
-    # /usr/bin/ssh-agent | sed 's/^echo/#echo/' > "${SSH_ENV}"
-    # echo succeeded
-    # chmod 600 "${SSH_ENV}"
-    # . "${SSH_ENV}" > /dev/null
-    # /usr/bin/ssh-add
-# }
-
-# if [ -f "${SSH_ENV}" ]; then
-     # . "${SSH_ENV}" > /dev/null
-     # ps -ef | grep ${SSH_AGENT_PID} | grep ssh-agent$ > /dev/null || {
-        # start_agent;
-    # }
-# else
-    # start_agent;
-# fi
 #}}}
-
 bind -r '\C-s'
 stty -ixon
-source <(kubectl completion bash)
+# source <(kubectl completion bash)
+source ~/avalon/avalon_env.sh
+export EGNYTE_SVN_USERNAME=skramer
+source ~/bin/jrebel-env.sh
