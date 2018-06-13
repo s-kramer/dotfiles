@@ -181,6 +181,9 @@ _isroot=false
     alias mkdir='mkdir -p -v'
     alias ping='ping -c 5'
     alias hbrc='vim ~/.bashrc'
+    alias hbrcl='vim ~/.dotfiles/.bashrc-local'
+    alias hbrcw='vim ~/.dotfiles/.bashrc-work'
+    alias hbrch='vim ~/.dotfiles/.bashrc-home'
     alias trc='vim ~/.dotfiles/tmux_config/tmux.conf'
     alias d='cd ~/Projects/Docker'
     alias scr='cd ~/Projects/Scala'
@@ -218,28 +221,6 @@ _isroot=false
     alias tip='cd ~/tips'
     alias p='cd ~/Projects/Python/python_test'
     alias k='cd ~/Projects/Kotlin/kotlin_test'
-  #}}}
-  # AVALON ACCESS {{{
-    alias memcacheFlush="echo 'flush_all' | nc localhost 11211"
-    alias avalonInstallUi="source ~/bin/jrebel-env.sh && cd ~/avalon/modules && mvn -pl ui -amd -DskipTests -Puse-released-common-ui -Peg-snapshots -Pdeploy-to-server"
-    alias avalonCleanInstallTomcatRestartServer="source ~/bin/jrebel-env.sh && cd ~/avalon/modules && mvn -pl server -amd -DskipTests -Puse-released-common-ui -Peg-snapshots -Pdeploy-to-server && avalonRestartTomcat && cd - && sleep 15 && avalonCheckAvailability && echo 'Avalon recompilation and Tomcat restart done'"
-    alias avalonCleanInstallTomcatRestart="source ~/bin/jrebel-env.sh && cd ~/avalon/modules && mvn clean install -DskipTests -Puse-released-common-ui -Peg-snapshots -Pdeploy-to-server && avalonRestartTomcat && cd - && sleep 15 && avalonCheckAvailability && echo 'Avalon recompilation and Tomcat restart done'"
-    alias avalonInstallTomcatRestart="source ~/bin/jrebel-env.sh && cd ~/avalon/modules && mvn install -DskipTests -Peg-snapshots -Puse-released-common-ui -Pdeploy-to-server && avalonRestartTomcat && cd - && sleep 15 && avalonCheckAvailability && echo 'Avalon recompilation and Tomcat restart done'"
-    alias avalonRebuildSchemas="cd ~/avalon/modules && mvn -P rebuild-schemas -DskipTests && cd -"
-    alias avalonRunAllFuncTests="cd ~/avalon/modules/server && mvn test -P'!unit-test' -Dmaven.test.failure.ignore=true && cd -"
-    alias avalonRunAllUnitTests="cd ~/avalon/modules/server && mvn test -P'!func-test' -Dmaven.test.failure.ignore=true && cd -"
-    alias avalonRunAllTests="cd ~/avalon/modules/server && mvn test -Dmaven.test.failure.ignore=true && cd -"
-    alias avalonCheckAvailability="curl --connect-timeout 600 --max-time 600 -kI https://subdomain0.ezegnyte.com/ > /dev/null"
-    alias avalonCheckAvailabilityVerbose="curl --connect-timeout 600 --max-time 600 -kIv https://subdomain0.ezegnyte.com/ > /dev/null"
-    alias avalonRestartEzServer="~/avalon/scripts/ez_server.py restart && avalonCheckAvailability"
-    alias avalonCreateSshTunnelToQa="ssh qa-us -L 9998:app01:8000 -L 9999:app02:8000"
-    alias avalonRestartTomcat="source ~/bin/jrebel-env.sh && cd ~/apache-tomcat-7.0.50/bin && sh catalina.sh stop -force && sh catalina.sh jpda start && sleep 15 && avalonCheckAvailability"
-
-    alias am='cd ~/avalon/module'
-    alias as='cd ~/avalon/script'
-    alias a='cd ~/avalon/'
-    alias at='cd ~/apache-tomcat-7.0.50/'
-    alias atl='cd ~/apache-tomcat-7.0.50/logs'
   #}}}
   # PRIVILEGED ACCESS {{{
     if ! $_isroot; then
