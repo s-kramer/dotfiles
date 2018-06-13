@@ -261,9 +261,31 @@ _isroot=false
     alias lm='la | less'
 
   #}}}
- # ENTER AND LIST DIRECTORY{{{
-    function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -h --color; }; }
+  # ENTER AND LIST DIRECTORY{{{
+        function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -h --color; }; }
   #}}}
+  # SYSTEMD SUPPORT {{{	
+        if which systemctl &>/dev/null; then	
+          start() {	
+            sudo systemctl start $1.service	
+          }	
+          restart() {	
+            sudo systemctl restart $1.service	
+          }	
+          stop() {	
+            sudo systemctl stop $1.service	
+          }	
+          enable() {	
+            sudo systemctl enable $1.service	
+          }	
+          status() {	
+            sudo systemctl status $1.service	
+          }	
+          disable() {	
+            sudo systemctl disable $1.service	
+          }	
+        fi
+    # }}}
 #}}}
 bind -r '\C-s'
 stty -ixon
