@@ -1,0 +1,4 @@
+source ~/avalon/avalon_env.sh
+export EGNYTE_SVN_USERNAME=skramer
+source ~/bin/jrebel-env.sh
+

@@ -88,8 +88,8 @@ _isroot=false
   #}}}
 ## EXPORTS {{{
   export PATH=/usr/local/bin:$PATH
-  export PATH=/home/egnyte/scripts:$PATH
-  export PATH=/home/egnyte/bin:$PATH
+  export PATH=~/scripts:$PATH
+  export PATH=~/bin:$PATH
   #Ruby support
   if which ruby &>/dev/null; then
     GEM_DIR=$(ruby -rubygems -e 'puts Gem.user_dir')/bin
@@ -287,9 +287,8 @@ _isroot=false
         fi
     # }}}
 #}}}
+
 bind -r '\C-s'
 stty -ixon
-# source <(kubectl completion bash)
-source ~/avalon/avalon_env.sh
-export EGNYTE_SVN_USERNAME=skramer
-source ~/bin/jrebel-env.sh
+
+source ~/.dotfiles/.bashrc-local
