@@ -271,3 +271,8 @@ bind -r '\C-s'
 stty -ixon
 
 source ~/.dotfiles/.bashrc-local
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+# curl -s https://get.sdkman.io | bash
+export SDKMAN_DIR="/home/skramer/.sdkman"
+[[ -s "/home/skramer/.sdkman/bin/sdkman-init.sh" ]] && source "/home/skramer/.sdkman/bin/sdkman-init.sh"
