@@ -186,7 +186,8 @@ _isroot=false
     alias hbrch='vim ~/.dotfiles/.bashrc-home'
     alias trc='vim ~/.dotfiles/tmux_config/tmux.conf'
     alias d='cd ~/Projects/Docker'
-    alias scr='cd ~/Projects/Scala'
+    alias s='cd ~/Projects/Scala'
+    alias scr='cd ~/scripts'
     alias sd='cd /home/skramer/sd/'
     alias pdf='cd /home/skramer/PDFs/'
     alias m='make'
@@ -241,9 +242,6 @@ _isroot=false
     alias la='ls -A'
     alias lm='la | less'
 
-  #}}}
-  # ENTER AND LIST DIRECTORY{{{
-        function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -h --color; }; }
   #}}}
   # SYSTEMD SUPPORT {{{	
         if which systemctl &>/dev/null; then	

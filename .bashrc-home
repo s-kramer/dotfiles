@@ -1,1 +1,4 @@
 # source <(kubectl completion bash)
+# ENTER AND LIST DIRECTORY{{{
+    function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -h --color; }; }
+#}}}

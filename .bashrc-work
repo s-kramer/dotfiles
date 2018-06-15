@@ -1,25 +1,32 @@
-# AVALON ACCESS {{{
-alias memcacheFlush="echo 'flush_all' | nc localhost 11211"
-alias avalonInstallUi="source ~/bin/jrebel-env.sh && cd ~/avalon/modules && mvn -pl ui -amd -DskipTests -Puse-released-common-ui -Peg-snapshots -Pdeploy-to-server"
-alias avalonCleanInstallTomcatRestartServer="source ~/bin/jrebel-env.sh && cd ~/avalon/modules && mvn -pl server -amd -DskipTests -Puse-released-common-ui -Peg-snapshots -Pdeploy-to-server && avalonRestartTomcat && cd - && sleep 15 && avalonCheckAvailability && echo 'Avalon recompilation and Tomcat restart done'"
-alias avalonCleanInstallTomcatRestart="source ~/bin/jrebel-env.sh && cd ~/avalon/modules && mvn clean install -DskipTests -Puse-released-common-ui -Peg-snapshots -Pdeploy-to-server && avalonRestartTomcat && cd - && sleep 15 && avalonCheckAvailability && echo 'Avalon recompilation and Tomcat restart done'"
-alias avalonInstallTomcatRestart="source ~/bin/jrebel-env.sh && cd ~/avalon/modules && mvn install -DskipTests -Peg-snapshots -Puse-released-common-ui -Pdeploy-to-server && avalonRestartTomcat && cd - && sleep 15 && avalonCheckAvailability && echo 'Avalon recompilation and Tomcat restart done'"
-alias avalonRebuildSchemas="cd ~/avalon/modules && mvn -P rebuild-schemas -DskipTests && cd -"
-alias avalonRunAllFuncTests="cd ~/avalon/modules/server && mvn test -P'!unit-test' -Dmaven.test.failure.ignore=true && cd -"
-alias avalonRunAllUnitTests="cd ~/avalon/modules/server && mvn test -P'!func-test' -Dmaven.test.failure.ignore=true && cd -"
-alias avalonRunAllTests="cd ~/avalon/modules/server && mvn test -Dmaven.test.failure.ignore=true && cd -"
-alias avalonCheckAvailability="curl --connect-timeout 600 --max-time 600 -kI https://subdomain0.ezegnyte.com/ > /dev/null"
-alias avalonCheckAvailabilityVerbose="curl --connect-timeout 600 --max-time 600 -kIv https://subdomain0.ezegnyte.com/ > /dev/null"
-alias avalonRestartEzServer="~/avalon/scripts/ez_server.py restart && avalonCheckAvailability"
-alias avalonCreateSshTunnelToQa="ssh qa-us -L 9998:app01:8000 -L 9999:app02:8000"
-alias avalonRestartTomcat="source ~/bin/jrebel-env.sh && cd ~/apache-tomcat-7.0.50/bin && sh catalina.sh stop -force && sh catalina.sh jpda start && sleep 15 && avalonCheckAvailability"
+  # AVALON ACCESS {{{
+    export AVALON_MAVEN_BUILD_OPTIONS=" -Peg-snapshots -Puse-released-common-ui"
 
-alias am='cd ~/avalon/module'
-alias as='cd ~/avalon/script'
-alias a='cd ~/avalon/'
-alias at='cd ~/apache-tomcat-7.0.50/'
-alias atl='cd ~/apache-tomcat-7.0.50/logs'
-#}}}
+    alias memcacheFlush="echo 'flush_all' | nc localhost 11211"
+    alias avalonInstallUi="cd ~/avalon/module && mvn -pl ui -amd -DskipTests -Puse-released-common-ui -Pdeploy-to-server"
+    alias avalonCleanInstallTomcatRestartServer="cd ~/avalon/module && mvn -pl server -amd -DskipTests  -Pdeploy-to-server $AVALON_MAVEN_BUILD_OPTIONS && avalonRestartTomcat && cd - && sleep 15 && avalonCheckAvailability && echo 'Avalon recompilation and Tomcat restart done'"
+    alias avalonCleanInstallTomcatRestart="cd ~/avalon/module && mvn clean install -DskipTests -Pdeploy-to-server $AVALON_MAVEN_BUILD_OPTIONS && avalonRestartTomcat && cd - && sleep 15 && avalonCheckAvailability && echo 'Avalon recompilation and Tomcat restart done'"
+    alias avalonInstallTomcatRestart="cd ~/avalon/module && mvn install -DskipTests -Pdeploy-to-server $AVALON_MAVEN_BUILD_OPTIONS && avalonRestartTomcat && cd - && sleep 15 && avalonCheckAvailability && echo 'Avalon recompilation and Tomcat restart done'"
+    alias avalonRebuildSchemas="cd ~/avalon/module && mvn -P rebuild-schemas -DskipTests $AVALON_MAVEN_BUILD_OPTIONS && cd -"
+    alias avalonRunAllFuncTests="cd ~/avalon/module/server && mvn test -P'!unit-test' -Dmaven.test.failure.ignore=true -Puse-released-common-ui && cd -"
+    alias avalonRunAllUnitTests="cd ~/avalon/module/server && mvn test -P'!func-test' -Dmaven.test.failure.ignore=true -Puse-released-common-ui && cd -"
+    alias avalonRunAllTests="cd ~/avalon/module/server && mvn test -Dmaven.test.failure.ignore=true -Puse-released-common-ui && cd -"
+    alias avalonCheckAvailability="curl --connect-timeout 600 --max-time 600 -kI https://subdomain0.ezegnyte.com/ > /dev/null"
+    alias avalonCheckAvailabilityVerbose="curl --connect-timeout 600 --max-time 600 -kIv https://subdomain0.ezegnyte.com/ > /dev/null"
+    alias avalonRestartEzServer="~/avalon/scripts/ez_server.py restart && avalonCheckAvailability"
+    alias avalonCreateSshTunnelToQaDebug="ssh qa-us -L 9998:app01:8000 -L 9999:app02:8000"
+    alias avalonCreateSshTunnelToQaTomcat="ssh qa-us -L 9998:app01:6280 -L 9999:app02:6280"
+    alias avalonRestartTomcat="cd ~/apache-tomcat-7.0.50/bin && ./catalina-jrebel.sh stop -force && ./catalina-jrebel.sh jpda start && sleep 15 && avalonCheckAvailability"
+    # alias avalonRestartTomcat="cd ~/apache-tomcat-7.0.50/bin && ./catalina.sh stop -force && ./catalina.sh jpda start && sleep 15 && avalonCheckAvailability"
+    alias egnyte_start="cd /home/egnyte/avalon/scripts && ./ez_server.py restart && cd - && start_all"
+
+    alias am='cd ~/avalon/module'
+    alias as='cd ~/avalon/script'
+    alias a='cd ~/avalon/'
+    alias at='cd ~/apache-tomcat-7.0.50/'
+    alias atb='cd ~/apache-tomcat-7.0.50/bin'
+    alias atl='cd ~/apache-tomcat-7.0.50/logs'
+    alias atw='cd ~/apache-tomcat-7.0.50/webapps'
+  #}}}
 
 source ~/avalon/avalon_env.sh
 export EGNYTE_SVN_USERNAME=skramer
