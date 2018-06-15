@@ -13,3 +13,4 @@ vim_config/bundle
 vim_config/.undofile
 *.pycache
 *.pyc
+.bashrc-local
