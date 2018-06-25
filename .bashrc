@@ -233,6 +233,9 @@ _isroot=false
       alias halt='sudo halt'
     fi
   #}}}
+  # IJ {{{
+    alias fixIntelliJKeyboardFreeze='ibus-daemon -rd'
+  #}}}
   # LS {{{
     alias ls='ls -F --color=auto'
     alias l='ls'
