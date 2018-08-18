@@ -4,5 +4,8 @@ alias fixIptablesForKdeConnect="sudo iptables -I INPUT -p tcp --dport 1714:1764 
 # ENTER AND LIST DIRECTORY{{{
     function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -h --color; }; }
 #}}}
+# SEND SMS {{{
+function sendSms() { kdeconnect-cli -d 6b7b7c75e84f912c --destination +48"$1" --send-sms "$2"; }
+#}}}
 #
 # source <(kubectl completion bash)
