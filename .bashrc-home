@@ -1,8 +1,11 @@
-function mpvs() { mpv --sub-file "$@"txt "$@"avi; }
-alias txf='cd /home/skramer/Movies/The\ X-Files\ Season\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8\ \&\ 9\ \+\ Extras\ DVDRip\ HDTV\ TSV/Season\ 07'
-
+function mpvs() { mpv --sub-file "$1"txt "$1"avi; }
+alias txf='cd /home/skramer/Movies/The\ X-Files\ Season\ 1,\ 2,\ 3,\ 4,\ 5,\ 6,\ 7,\ 8\ \&\ 9\ \+\ Extras\ DVDRip\ HDTV\ TSV/Season\ 08'
+alias fixIptablesForKdeConnect="sudo iptables -I INPUT -p tcp --dport 1714:1764 -j ACCEPT && sudo iptables -I INPUT -p udp --dport 1714:1764 -j ACCEPT"
 # ENTER AND LIST DIRECTORY{{{
     function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -h --color; }; }
+#}}}
+# SEND SMS {{{
+function sendSms() { kdeconnect-cli -d 6b7b7c75e84f912c --destination +48"$1" --send-sms "$2"; }
 #}}}
 #
 # source <(kubectl completion bash)
