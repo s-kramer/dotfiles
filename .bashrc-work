@@ -1,25 +1,32 @@
   # AVALON ACCESS {{{
-    export AVALON_MAVEN_BUILD_OPTIONS=" -Peg-snapshots -Puse-released-common-ui"
+    export AVALON_MAVEN_BUILD_OPTIONS=" -Peg-snapshots -Puse-released-common-ui -DskipEmailTemplates"
+    export AVALON_MAVEN_INVOCATION="cd ~/avalon/module && mvn"
 
     alias memcacheFlush="echo 'flush_all' | nc localhost 11211"
-    alias avalonInstallUi="cd ~/avalon/module && mvn -pl ui -amd -DskipTests -Puse-released-common-ui -Pdeploy-to-server"
-    alias avalonOnlyCleanInstall="cd ~/avalon/module && mvn clean install -DskipTests  -Pdeploy-to-server $AVALON_MAVEN_BUILD_OPTIONS && echo 'Avalon recompilation'"
-    alias avalonCleanInstallTomcatRestartServer="cd ~/avalon/module && mvn clean install -pl server -amd -DskipTests  -Pdeploy-to-server $AVALON_MAVEN_BUILD_OPTIONS && avalonRestartTomcat && cd - && sleep 15 && avalonCheckAvailability && echo 'Avalon recompilation and Tomcat restart done'"
-    alias avalonCleanInstallTomcatRestart="cd ~/avalon/module && mvn clean install -DskipTests -Pdeploy-to-server $AVALON_MAVEN_BUILD_OPTIONS && avalonRestartTomcat && cd - && sleep 15 && avalonCheckAvailability && echo 'Avalon recompilation and Tomcat restart done'"
-    alias avalonInstall="cd ~/avalon/module && mvn install -DskipTests -Pdeploy-to-server $AVALON_MAVEN_BUILD_OPTIONS "
-    alias avalonInstallTomcatRestart="avalonInstall && avalonRestartTomcat && cd - && sleep 15 && avalonCheckAvailability && echo 'Avalon recompilation and Tomcat restart done'"
-    alias avalonRebuildSchemas="cd ~/avalon/module && mvn -P rebuild-schemas -DskipTests $AVALON_MAVEN_BUILD_OPTIONS && cd -"
-    alias avalonRunAllFuncTests="cd ~/avalon/module/ && mvn test -P'!unit-test' -Dmaven.test.failure.ignore=true $AVALON_MAVEN_BUILD_OPTIONS | tee func_test_results && cd -"
-    alias avalonRunAllUnitTests="cd ~/avalon/module/ && mvn test -P'!func-test' -Dmaven.test.failure.ignore=true $AVALON_MAVEN_BUILD_OPTIONS | tee unit_test_results && cd -"
-    alias avalonRunAllTests="cd ~/avalon/module/ && mvn test -Dmaven.test.failure.ignore=true $AVALON_MAVEN_BUILD_OPTIONS | tee test_results && cd -"
-    alias avalonCheckAvailability="curl --connect-timeout 600 --max-time 600 -kI https://subdomain0.ezegnyte.com/ > /dev/null"
-    alias avalonCheckAvailabilityVerbose="curl --connect-timeout 600 --max-time 600 -kIv https://subdomain0.ezegnyte.com/ > /dev/null"
+    alias avalonInstallUi="$AVALON_MAVEN_INVOCATION -pl ui -amd -DskipTests -Puse-released-common-ui -Pdeploy-to-server"
+    alias avalonOnlyCleanInstall="$AVALON_MAVEN_INVOCATION clean install -DskipTests  -Pdeploy-to-server $AVALON_MAVEN_BUILD_OPTIONS && echo 'Avalon recompilation'"
+    alias avalonCleanInstallTomcatRestartServer="$AVALON_MAVEN_INVOCATION clean install -pl server -amd -DskipTests  -Pdeploy-to-server $AVALON_MAVEN_BUILD_OPTIONS && avalonRestartTomcat && cd - && sleep 15 && avalonCheckAvailability && echo 'Avalon recompilation and Tomcat restart done'"
+    alias avalonCleanInstallTomcatRestart="$AVALON_MAVEN_INVOCATION clean install -DskipTests -Pdeploy-to-server $AVALON_MAVEN_BUILD_OPTIONS && avalonRestartTomcat && cd - && sleep 15 && avalonCheckAvailability && echo 'Avalon recompilation and Tomcat restart done'"
+    alias avalonInstall="$AVALON_MAVEN_INVOCATION install -DskipTests -Pdeploy-to-server $AVALON_MAVEN_BUILD_OPTIONS "
+    alias avalonInstallTomcatRestart="avalonInstall && avalonRestartTomcat && cd - && echo 'Avalon recompilation and Tomcat restart done'"
+    alias avalonRebuildSchemas="$AVALON_MAVEN_INVOCATION -P rebuild-schemas -DskipEmailTemplates -DskipTests $AVALON_MAVEN_BUILD_OPTIONS && cd -"
+    alias avalonRunAllFuncTests="$AVALON_MAVEN_INVOCATION test -P'!unit-test' -Dmaven.test.failure.ignore=true $AVALON_MAVEN_BUILD_OPTIONS | tee func_test_results && cd -"
+    alias avalonRunAllUnitTests="$AVALON_MAVEN_INVOCATION test -P'!func-test' -Dmaven.test.failure.ignore=true $AVALON_MAVEN_BUILD_OPTIONS | tee unit_test_results && cd -"
+    alias avalonRunAllTests="$AVALON_MAVEN_INVOCATION test -Dmaven.test.failure.ignore=true $AVALON_MAVEN_BUILD_OPTIONS | tee test_results && cd -"
+    alias avalonCheckAvailability="curl --connect-timeout 6000 --max-time 6000 -kI https://subdomain0.ezegnyte.com/ > /dev/null"
+    alias avalonCheckAvailabilityVerbose="curl --connect-timeout 6000 --max-time 6000 -kIv https://subdomain0.ezegnyte.com/ > /dev/null"
     alias avalonRestartEzServer="~/avalon/scripts/ez_server.py restart && avalonCheckAvailability"
     alias avalonCreateSshTunnelToQaDebug="ssh qa-us -L 9998:app01:8000 -L 9999:app02:8000"
     alias avalonCreateSshTunnelToQaTomcat="ssh qa-us -L 9998:app01:6280 -L 9999:app02:6280"
-    alias avalonRestartTomcat="cd ~/apache-tomcat-7.0.50/bin && ./catalina-jrebel.sh stop -force && ./catalina-jrebel.sh jpda start && sleep 15 && avalonCheckAvailability"
-    # alias avalonRestartTomcat="cd ~/apache-tomcat-7.0.50/bin && ./catalina.sh stop -force && ./catalina.sh jpda start && sleep 15 && avalonCheckAvailability"
+    # alias avalonRestartTomcat="cd ~/apache-tomcat-7.0.50/bin && ./catalina-jrebel.sh stop -force && ./catalina-jrebel.sh jpda start && sleep 15 && avalonCheckAvailability"
+    alias avalonRestartTomcat="cd ~/apache-tomcat-7.0.50/bin && ./catalina.sh stop -force && ./catalina.sh jpda start && sleep 15 && avalonCheckAvailability"
     alias egnyte_start="cd /home/egnyte/avalon/scripts && ./ez_server.py restart && cd - && start_all"
+
+
+    alias avalonBaseCleanInstallRestartTomcat="$AVALON_MAVEN_INVOCATION clean install -Dappserver.home=/home/egnyte/avalon/module/build/eg-tomcat -DskipTests -Peg-snapshots -Puse-released-common-ui -Pdeploy-to-server -DskipEmailTemplates -DskipCommonUi -pl 'ui,settings,eos,filer,server,fsmeta,common_platform,common_pod,settings_common,settings_client' && avalonRestartTomcat"
+    alias avalonUiCleanInstallRestartTomcat="$AVALON_MAVEN_INVOCATION clean install -Dappserver.home=/home/egnyte/avalon/module/build/eg-tomcat -DskipTests -Peg-snapshots -Pdeploy-to-server -DskipEmailTemplates -pl 'ui' && avalonRestartTomcat"
+    # alias avalonBuildAll="$AVALON_MAVEN_INVOCATION  && mvn clean install -P deploy-to-server -Dappserver.home=/home/egnyte/avalon/module/build/eg-tomcat -DskipTests -Peg-snapshots -Puse-released-common-ui -DskipCommonUi -DskipEmailTemplates "
+
 
     alias am='cd ~/avalon/module'
     alias as='cd ~/avalon/script'
@@ -29,6 +36,7 @@
     alias atl='cd ~/apache-tomcat-7.0.50/logs'
     alias atw='cd ~/apache-tomcat-7.0.50/webapps'
   #}}}
+alias gitSetRemoteBranch="git branch --set-upstream-to=origin/"
 
 source ~/avalon/avalon_env.sh
 export EGNYTE_SVN_USERNAME=skramer
