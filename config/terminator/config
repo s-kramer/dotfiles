@@ -24,52 +24,42 @@
 [plugins]
 [profiles]
   [[default]]
-    background_image = None
     cursor_color = "#f34b00"
     custom_command = ~/bin/tmux -2 -f ~/.tmux.conf
     foreground_color = "#ffffff"
     palette = "#000000:#cd0000:#00cd00:#cdcd00:#7dda6c:#cd00cd:#00cdcd:#e5e5e5:#4c4c4c:#ff0000:#00ff00:#ffff00:#4682b4:#ff00ff:#00ffff:#ffffff"
-    scroll_on_output = False
     scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False
     use_custom_command = True
   [[Brogrammer]]
     background_color = "#222324"
-    background_image = None
     cursor_color = "#bbbbbb"
     foreground_color = "#bababa"
     palette = "#000000:#e8341c:#68c256:#f2d42c:#1c98e8:#8e69c9:#1c98e8:#bababa:#000000:#e05a4f:#77b869:#efd64b:#387cd3:#957bbe:#3d97e2:#bababa"
     show_titlebar = False
   [[Cobalt2]]
     background_color = "#132738"
-    background_image = None
     cursor_color = "#f0cc09"
     foreground_color = "#ffffff"
     palette = "#000000:#ff0000:#38de21:#ffe50a:#1460d2:#ff005d:#00bbbb:#bbbbbb:#555555:#f40e17:#3bd01d:#edc809:#5555ff:#ff55ff:#6ae3fa:#ffffff"
   [[Darkside]]
-    background_image = None
   [[Highway]]
-    background_image = None
   [[Obsidian]]
     background_color = "#283033"
-    background_image = None
     cursor_color = "#c0cad0"
     foreground_color = "#cdcdcd"
     palette = "#000000:#a60001:#00bb00:#fecd22:#3a9bdb:#bb00bb:#00bbbb:#bbbbbb:#555555:#ff0003:#93c863:#fef874:#a1d7ff:#ff55ff:#55ffff:#ffffff"
   [[Solarized]]
     background_color = "#222225"
-    background_image = None
     cursor_color = "#e0d9b9"
     foreground_color = "#ededed"
     palette = "#073642:#dc322f:#859900:#b58900:#268bd2:#d33682:#2aa198:#eee8d5:#002b36:#cb4b16:#586e75:#657b83:#839496:#6c71c4:#93a1a1:#fdf6e3"
-    scroll_on_output = False
     scrollback_infinite = True
     scrollbar_position = hidden
     show_titlebar = False
   [[default_old]]
     background_color = "#3f3f3f"
-    background_image = None
     cursor_color = "#dcdcdc"
     foreground_color = "#dcdcdc"
     palette = "#202020:#ff6565:#93d44f:#eab93d:#204a87:#ce5c00:#89b6e2:#cccccc:#606060:#ff8d8d:#c8e7a8:#ffc123:#3465a4:#f57900:#46a4ff:#ffffff"
@@ -77,7 +67,6 @@
     scrollbar_position = hidden
     show_titlebar = False
   [[weird_default]]
-    background_image = None
     cursor_color = "#bbbbbb"
     foreground_color = "#bbbbbb"
     palette = "#4c4c4c:#bb0000:#5fde8f:#f3f167:#276bd8:#bb00bb:#00dadf:#bbbbbb:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
