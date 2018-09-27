@@ -274,7 +274,7 @@ bind -r '\C-s'
 stty -ixon
 
 source ~/.dotfiles/.bashrc-local
-source ~/scripts/z/z.sh
+source ~/scripts/z.sh
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 # curl -s https://get.sdkman.io | bash
