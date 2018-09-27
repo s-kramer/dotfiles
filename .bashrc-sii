@@ -1,1 +1,2 @@
 alias sshJump="ssh otcjump@10.255.203.13"
+alias v="cd ~/verimi"
