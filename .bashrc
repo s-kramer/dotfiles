@@ -268,6 +268,9 @@ _isroot=false
           }	
         fi
     # }}}
+  # CD {{{
+  function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -h --color; }; }
+  # }}}
 #}}}
 
 bind -r '\C-s'
