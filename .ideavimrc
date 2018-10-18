@@ -16,6 +16,7 @@ map <leader>f :action Find<CR>
 map <leader>g :action GotoLine<CR>
 map <leader>h :action TypeHierarchy<CR>
 map <leader>i :action ImplementMethods<CR>
+map <leader>o :action InsertSingleCommandAction<CR>
 map <leader>r :action Replace<CR>
 map <leader>s :action SaveAll<CR>
 map <leader>t :action Vcs.UpdateProject<CR>
