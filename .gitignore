@@ -14,3 +14,4 @@ vim_config/.undofile
 *.pycache
 *.pyc
 .bashrc-local
+.bashrc-work
