@@ -204,6 +204,7 @@ _isroot=false
   #}}}
   # LOCALIZATION SHORTCUTS {{{
     alias hbrc='vim ~/.bashrc'
+    alias ivrc='vim ~/.ideavimrc'
     alias vrc='vim ~/.vimrc'
     alias vrcs='vim ~/.vim/settings.vim'
     alias vrcb='vim ~/.vim/bundles.vim'
