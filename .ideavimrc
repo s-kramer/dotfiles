@@ -1,6 +1,7 @@
 set visualbell
 set ignorecase smartcase
 set surround
+set multiple-cursors
 
 let mapleader = "," 
 nnoremap ,, ,
