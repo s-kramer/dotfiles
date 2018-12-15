@@ -195,7 +195,6 @@ _isroot=false
     alias mu='cd ~/Music/'
     alias yt='cd ~/Music/Music/YT'
     alias ij='/opt/idea-IC/bin/idea.sh &'
-    alias wild='/home/skramer/Downloads/wildfly-9.0.2.Final/bin/standalone.sh -c standalone-full.xml --debug &'
   #}}}
   # COMPILATION {{{
     alias c++='clang++ -Wall -o '
@@ -223,6 +222,7 @@ _isroot=false
     alias tip='cd ~/tips'
     alias p='cd ~/Projects/Python/python_test'
     alias k='cd ~/Projects/Kotlin/kotlin_test'
+    alias bin='cd ~/bin/'
   #}}}
   # PRIVILEGED ACCESS {{{
     if ! $_isroot; then
