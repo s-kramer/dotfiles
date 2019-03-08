@@ -134,6 +134,7 @@
     alias mu='cd ~/Music/'
     alias yt='cd ~/Music/Music/YT'
     alias ij='/opt/idea-IC/bin/idea.sh &'
+    alias ohmy='cd ~/.oh-my-zsh'
   #}}}
   # PRIVILEGED ACCESS {{{
     if ! $_isroot; then
@@ -185,5 +186,3 @@
 #}}}
 
 source ~/scripts/z.sh
-
-
