@@ -1,11 +1,4 @@
 function mpvs() { mpv --sub-file "$1"src "$1"mkv; }
 alias fixIptablesForKdeConnect="sudo iptables -I INPUT -p tcp --dport 1714:1764 -j ACCEPT && sudo iptables -I INPUT -p udp --dport 1714:1764 -j ACCEPT"
-alias ahs="cd '/home/skramer/Movies/American Horror Story (2011) Season 2 S02 + Extras (1080p BluRay x265 HEVC 10bit AAC 5.1 RZeroX)'"
-# ENTER AND LIST DIRECTORY{{{
-    function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -h --color; }; }
-#}}}
-# SEND SMS {{{
-function sendSms() { kdeconnect-cli -d 6b7b7c75e84f912c --destination +48"$1" --send-sms "$2"; }
-#}}}
-#
+
 # source <(kubectl completion bash)

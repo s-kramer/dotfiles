@@ -1,2 +1,2 @@
-alias sshJump="ssh otcjump@10.255.203.13"
-alias v="cd ~/verimi"
+alias sshJump="ssh otcjump@10.255.203.27"
+alias v="cd ~/verimi-auth"

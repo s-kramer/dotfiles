@@ -1,0 +1,189 @@
+## EXPORTS {{{
+  export PATH=/usr/local/bin:$PATH
+  export PATH=~/scripts:$PATH
+  export PATH=~/bin:$PATH
+  #Ruby support
+  if which ruby &>/dev/null; then
+    GEM_DIR=$(ruby -r rubygems -e 'puts Gem.user_dir')/bin
+    if [[ -d "$GEM_DIR" ]]; then
+      export PATH=$GEM_DIR:$PATH
+    fi
+  fi
+  if [[ -d "$HOME/bin" ]] ; then
+      PATH="$HOME/bin:$PATH"
+  fi
+  if which google-chrome-stable &>/dev/null; then
+    export CHROME_BIN=/usr/bin/google-chrome-stable
+  fi
+  ## EDITOR #{{{
+    if which vim &>/dev/null; then
+      export EDITOR="vim"
+    elif which emacs &>/dev/null; then
+      export EDITOR="emacs -nw"
+    else
+      export EDITOR="nano"
+    fi
+  #}}}
+  ## BASH HISTORY #{{{
+    # make multiple shells share the same history file
+    export HISTSIZE=1000            # bash history will save N commands
+    export HISTFILESIZE=${HISTSIZE} # bash will remember N commands
+    export HISTCONTROL=ignoreboth   # ingore duplicates and spaces
+    export HISTIGNORE='&:ls:ll:la:cd:exit:clear:history'
+  #}}}
+  ## COLORED MANUAL PAGES #{{{
+    # @see http://www.tuxarena.com/?p=508
+    # For colourful man pages (CLUG-Wiki style)
+    if $_isxrunning; then
+      export PAGER=less
+      export LESS_TERMCAP_mb=$'\E[01;31m'       # begin blinking
+      export LESS_TERMCAP_md=$'\E[01;38;5;74m'  # begin bold
+      export LESS_TERMCAP_me=$'\E[0m'           # end mode
+      export LESS_TERMCAP_se=$'\E[0m'           # end standout-mode
+      export LESS_TERMCAP_so=$'\E[38;5;246m'    # begin standout-mode - info box
+      export LESS_TERMCAP_ue=$'\E[0m'           # end underline
+      export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
+    fi
+  #}}}
+#}}}
+## ALIAS {{{
+  alias freemem='sudo /sbin/sysctl -w vm.drop_caches=3'
+  alias enter_matrix='echo -e "\e[32m"; while :; do for i in {1..16}; do r="$(($RANDOM % 2))"; if [[ $(($RANDOM % 5)) == 1 ]]; then if [[ $(($RANDOM % 4)) == 1 ]]; then v+="\e[1m $r   "; else v+="\e[2m $r   "; fi; else v+="     "; fi; done; echo -e "$v"; v=""; done'
+  # GIT_OR_HUB {{{
+    if which hub &>/dev/null; then
+      alias git=hub
+    fi
+  #}}}
+  # GIT ALIASES {{{
+    alias gs='git status'
+    alias gc='git commit'
+    alias gsh='git show'
+    alias glo='git log'
+    alias ga='git add'
+    alias gc='git commit'
+    alias gd='git diff'
+    alias gp='git push'
+    alias gl='git pull'
+  # }}}
+  # AUTOCOLOR {{{
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+  #}}}
+  # MODIFIED COMMANDS {{{
+    alias cd-='cd -'
+    alias cd.='cd ..'
+    alias cd..='cd ../..'
+    alias cd...='cd ../../..'
+    alias cd....='cd ../../../..'
+    alias cd.....='cd ../../../../..'
+    alias cd......='cd ../../../../../..'
+    alias cd.......='cd ../../../../../../..'
+    alias cd........='cd ../../../../../../../..'
+    alias cd.........='cd ../../../../../../../../..'
+    alias cd..........='cd ../../../../../../../../../..'
+    alias cd...........='cd ../../../../../../../../../../..'
+    alias diff='colordiff'              # requires colordiff package
+    alias du='du -c -h'
+    alias free='free -m'                # show sizes in MB
+    alias e='exit'
+    alias mkdir='mkdir -p -v'
+    alias ping='ping -c 5'
+  #}}}
+  # COMPILATION {{{
+    alias c++='clang++ -Wall -o '
+    alias c+='clang++ -Wall -std=c++14 -o '
+    alias ghc='ghc -outputdir /tmp/ '
+  #}}}
+  # LOCALIZATION SHORTCUTS {{{
+    alias hbrc='vim ~/.bashrc'
+    alias ivrc='vim ~/.ideavimrc'
+    alias vrc='vim ~/.vimrc'
+    alias vrcs='vim ~/.vim/settings.vim'
+    alias vrcb='vim ~/.vim/bundles.vim'
+    alias vrcp='vim ~/.vim/plugins.vim'
+    alias vrcm='vim ~/.vim/map.vim'
+    alias vrcf='vim ~/.vim/functions.vim'
+    alias vrca='vim ~/.vim/autocmd.vim'
+    alias b='cd ~/builds'
+    alias c='cd ~/Projects/Cpp/c_test'
+    alias cl='cd ~/Projects/Cpp/ClionProjects'
+    alias h='cd ~/Projects/Haskell/haskel_test'
+    alias j='cd ~/Projects/Java/java_test/'
+    alias s='cd ~/Projects/Scala/'
+    alias dot='cd ~/.dotfiles'
+    alias tip='cd ~/tips'
+    alias p='cd ~/Projects/Python/python_test'
+    alias k='cd ~/Projects/Kotlin/kotlin_test'
+    alias bin='cd ~/bin/'
+    alias hbrcl='vim ~/.dotfiles/.bashrc-local'
+    alias hbrcw='vim ~/.dotfiles/.bashrc-work'
+    alias hbrch='vim ~/.dotfiles/.bashrc-home'
+    alias shrc='vim ~/.dotfiles/.sh-commonrc'
+    alias zrc='vim ~/.dotfiles/.zshrc'
+    alias trc='vim ~/.dotfiles/tmux_config/tmux.conf'
+    alias d='cd ~/Projects/Docker'
+    alias scr='cd ~/scripts'
+    alias sd='cd /home/skramer/sd/'
+    alias pdf='cd /home/skramer/PDFs/'
+    alias m='make'
+    alias mc='make clean'
+    alias mu='cd ~/Music/'
+    alias yt='cd ~/Music/Music/YT'
+    alias ij='/opt/idea-IC/bin/idea.sh &'
+  #}}}
+  # PRIVILEGED ACCESS {{{
+    if ! $_isroot; then
+      alias sudo='sudo '
+      alias scat='sudo cat'
+      alias svim='sudo vim'
+      alias root='sudo su'
+      alias reboot='sudo reboot'
+      alias halt='sudo halt'
+    fi
+  #}}}
+  # IJ {{{
+    alias fixIntelliJKeyboardFreeze='ibus-daemon -rd'
+  #}}}
+  # LS {{{
+    alias ls='ls -F --color=auto'
+    alias l='ls'
+    alias lr='ls -R'                    # recursive ls
+    alias ll='ls -l'
+    alias lla='ls -al'
+    alias la='ls -A'
+    alias lm='la | less'
+  #}}}
+  # SYSTEMD SUPPORT {{{	
+        if which systemctl &>/dev/null; then	
+          start() {	
+            sudo systemctl start $1.service	
+          }	
+          restart() {	
+            sudo systemctl restart $1.service	
+          }	
+          stop() {	
+            sudo systemctl stop $1.service	
+          }	
+          enable() {	
+            sudo systemctl enable $1.service	
+          }	
+          status() {	
+            sudo systemctl status $1.service	
+          }	
+          disable() {	
+            sudo systemctl disable $1.service	
+          }	
+        fi
+    # }}}
+  # CD {{{
+  function cd() { builtin cd -- "$@" && { [ "$PS1" = "" ] || ls -h --color; }; }
+  # }}}
+#}}}
+
+source ~/scripts/z.sh
+
+
