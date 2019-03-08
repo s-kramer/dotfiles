@@ -100,3 +100,4 @@ source ~/.dotfiles/.sh-commonrc
 
 stty stop undef
 stty start undef
+eval `dircolors ~/.dotfiles/oh-my-zsh/dircolors`
