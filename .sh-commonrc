@@ -133,7 +133,7 @@
     alias mc='make clean'
     alias mu='cd ~/Music/'
     alias yt='cd ~/Music/Music/YT'
-    alias ij='/opt/idea-IC/bin/idea.sh &'
+    alias ij='~/scripts/idea &'
     alias ohmy='cd ~/.oh-my-zsh'
   #}}}
   # PRIVILEGED ACCESS {{{
