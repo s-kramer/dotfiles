@@ -191,3 +191,4 @@ source ~/scripts/z.sh
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/skramer/.sdkman"
 [[ -s "/home/skramer/.sdkman/bin/sdkman-init.sh" ]] && source "/home/skramer/.sdkman/bin/sdkman-init.sh"
+
