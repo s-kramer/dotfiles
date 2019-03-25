@@ -101,3 +101,15 @@ source ~/.dotfiles/.sh-commonrc
 stty stop undef
 stty start undef
 eval `dircolors ~/.dotfiles/oh-my-zsh/dircolors`
+
+
+expand-aliases() {
+  unset 'functions[_expand-aliases]'
+  functions[_expand-aliases]=$BUFFER
+  (($+functions[_expand-aliases])) &&
+    BUFFER=${functions[_expand-aliases]#$'\t'} &&
+    CURSOR=$#BUFFER
+}
+
+zle -N expand-aliases
+bindkey '\e^E' expand-aliases

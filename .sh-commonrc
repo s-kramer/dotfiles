@@ -64,6 +64,7 @@
     alias gd='git diff'
     alias gp='git push'
     alias gl='git pull'
+    alias gitBranchUpstream='git branch --set-upstream-to='
   # }}}
   # AUTOCOLOR {{{
     alias ls='ls --color=auto'
@@ -186,3 +187,7 @@
 #}}}
 
 source ~/scripts/z.sh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/skramer/.sdkman"
+[[ -s "/home/skramer/.sdkman/bin/sdkman-init.sh" ]] && source "/home/skramer/.sdkman/bin/sdkman-init.sh"
