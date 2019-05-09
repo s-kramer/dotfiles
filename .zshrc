@@ -113,3 +113,4 @@ expand-aliases() {
 
 zle -N expand-aliases
 bindkey '\e^E' expand-aliases
+if [ /home/skramer/bin/kubectl ]; then source <(kubectl completion zsh); fi
