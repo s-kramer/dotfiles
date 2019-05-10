@@ -1,2 +1,3 @@
 alias sshJump="ssh root@10.255.203.27"
 alias v="cd ~/verimi-auth-verimi"
+alias vs="cd ~/verimi-auth-verimi/scripts/kubectl-scripts"
