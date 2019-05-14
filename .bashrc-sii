@@ -1,3 +1,15 @@
 alias sshJump="ssh root@10.255.203.27"
 alias v="cd ~/verimi-auth-verimi"
 alias vs="cd ~/verimi-auth-verimi/scripts/kubectl-scripts"
+alias k=kubectl
+
+ENV_NUMBER=6
+
+for i in {1..$ENV_NUMBER}; do
+    alias k$i="kubectl -n dev$i "
+    alias k"$i"gp="kubectl -n dev$i get pod --sort-by=.status.startTime"
+    alias k"$i"dp="kubectl -n dev$i describe pod "
+done;
+
+source ~/verimi-auth-verimi/scripts/kubectl-scripts/fetch-pod-name
+
