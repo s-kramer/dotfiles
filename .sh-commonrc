@@ -187,7 +187,7 @@
 #}}}
 
 source ~/scripts/z.sh
-source ~/.dotfiles/.bashrc-sii
+source ~/.dotfiles/.bashrc-local
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="/home/skramer/.sdkman"
