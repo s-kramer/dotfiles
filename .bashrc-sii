@@ -8,9 +8,11 @@ ENV_NUMBER=("1" "2" "3" "4" "5" "6" "int")
 for i in $ENV_NUMBER; do
     alias k$i="kubectl -n dev$i "
     alias k"$i"dp="kubectl -n dev$i describe pod "
+    alias k"$i"delp="kubectl -n dev$i delete pod "
     alias k"$i"gp="kubectl -n dev$i get pod --sort-by=.status.startTime"
     alias wk"$i"gp="watch -n 1 \"kubectl -n dev$i get pod --sort-by=.status.startTime\""
     alias k"$i"gcm="k$i describe cm "
+    alias k"$i"log="k$i logs -f "
 
     function k"$i"sh() {
         local SERVICE_NAME=$1
