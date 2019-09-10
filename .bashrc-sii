@@ -3,25 +3,44 @@ alias v="cd ~/verimi-auth-verimi"
 alias vs="cd ~/verimi-auth-verimi/scripts/kubectl-scripts"
 alias k=kubectl
 
-ENV_NUMBER=("1" "2" "3" "4" "5" "6" "int")
+ENV_DESCRIPTOR_DEV=("1" "2" "3" "4" "5" "6" "int" "u")
+KUBE_CONFIG=${KUBE_CONFIG:-"${HOME}/.kube/config"}
 
-for i in $ENV_NUMBER; do
-    alias k$i="kubectl -n dev$i "
-    alias k"$i"dp="kubectl -n dev$i describe pod "
-    alias k"$i"delp="kubectl -n dev$i delete pod "
-    alias k"$i"gp="kubectl -n dev$i get pod --sort-by=.status.startTime"
-    alias wk"$i"gp="watch -n 1 \"kubectl -n dev$i get pod --sort-by=.status.startTime\""
-    alias k"$i"gcm="k$i describe cm "
-    alias k"$i"log="k$i logs -f "
+for i in $ENV_DESCRIPTOR_DEV; do
+    if [[ "$i" = "u" ]]; then
+        ENV_NAME="uat"
+    else
+        ENV_NAME="dev"$i
+    fi
+    alias k$i="kubectl -n $ENV_NAME "
+    alias k"$i"dp="kubectl -n $ENV_NAME  describe pod "
+    alias k"$i"delp="kubectl -n $ENV_NAME  delete pod "
+    alias k"$i"gp="kubectl -n $ENV_NAME get  pod --sort-by=.status.startTime"
+    alias wk"$i"gp="watch -n 1 \"kubectl -n $ENV_NAME get pod  --sort-by=.status.startTime\""
+    alias k"$i"gcm="k$i describe  cm "
+    alias k"$i"log="k$i  logs -f "
 
-    function k"$i"sh() {
-        local SERVICE_NAME=$1
-        local SERVICE_POD_NAME=`kubectl -n dev"$i" get pod -o name | grep -e $SERVICE_NAME | sed 's|pod/||'`
-        echo $SERVICE_POD_NAME
-        kubectl -n dev"$i" exec -it $SERVICE_POD_NAME /bin/sh
-    }
+    # TODO: $ENV_NAME is not evaluated during funciton creation
+    # function k"$i"sh() {
+        # local SERVICE_NAME=$1
+        # local SERVICE_POD_NAME=`kubectl -n $ENV_NAME  get pod -o name | grep -e $SERVICE_NAME | sed 's|pod/||'`
+        # echo $SERVICE_POD_NAME
+        # kubectl -n $ENV_NAME exec -it $SERVICE_POD_NAME /bin/sh
+    # }
 
 done;
 
-source ~/verimi-auth-verimi/scripts/kubectl-scripts/fetch-pod-name
+function loadVerimiUAT() {
+    rm ~/.kube/config
+    ln -s ~/.kube/uat-config ~/.kube/config
+}
+function loadVerimiDEV() {
+    rm ~/.kube/config
+    ln -s ~/.kube/config-dev ~/.kube/config
+}
+function loadVerimiPROD() {
+    rm ~/.kube/config
+    ln -s ~/.kube/config-prod ~/.kube/config
+}
 
+source ~/verimi-auth-verimi/scripts/kubectl-scripts/fetch-pod-name
