@@ -14,7 +14,7 @@ for i in $ENV_DESCRIPTOR_DEV; do
     fi
     alias k$i="kubectl -n $ENV_NAME "
     alias k"$i"dp="kubectl -n $ENV_NAME  describe pod "
-    alias k"$i"delp="kubectl -n $ENV_NAME  delete pod "
+    alias k"$i"delp="kubectl -n $ENV_NAME  delete pod --wait=false"
     alias k"$i"gp="kubectl -n $ENV_NAME get  pod --sort-by=.status.startTime"
     alias wk"$i"gp="watch -n 1 \"kubectl -n $ENV_NAME get pod  --sort-by=.status.startTime\""
     alias k"$i"gcm="k$i describe  cm "
