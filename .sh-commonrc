@@ -117,7 +117,6 @@
     alias s='cd ~/Projects/Scala/'
     alias dot='cd ~/.dotfiles'
     alias tip='cd ~/tips'
-    alias dna='cd ~/tips/dna'
     alias p='cd ~/Projects/Python/python_test'
     alias k='cd ~/Projects/Kotlin/kotlin_test'
     alias bin='cd ~/bin/'
@@ -137,6 +136,12 @@
     alias yt='cd ~/Music/Music/YT'
     alias ij='~/scripts/idea &'
     alias ohmy='cd ~/.oh-my-zsh'
+    alias dna='cd ~/tips/dna'
+
+    for i in {1..19}; do 
+        folderPostfix=$(printf "%02d" $i)
+        alias dna$i="cd ~/tips/dna/week_"$folderPostfix; 
+    done
   #}}}
   # PRIVILEGED ACCESS {{{
     if ! $_isroot; then
