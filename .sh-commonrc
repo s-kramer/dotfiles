@@ -117,6 +117,7 @@
     alias s='cd ~/Projects/Scala/'
     alias dot='cd ~/.dotfiles'
     alias tip='cd ~/tips'
+    alias tipmm='cd ~/tips/mindmaps'
     alias p='cd ~/Projects/Python/python_test'
     alias k='cd ~/Projects/Kotlin/kotlin_test'
     alias bin='cd ~/bin/'
@@ -137,6 +138,7 @@
     alias ij='~/scripts/idea &'
     alias ohmy='cd ~/.oh-my-zsh'
     alias dna='cd ~/tips/dna'
+    alias dnan='cd ~/tips/dna/notes'
 
     for i in {1..19}; do 
         folderPostfix=$(printf "%02d" $i)
